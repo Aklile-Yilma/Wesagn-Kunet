@@ -9,7 +9,7 @@ Business feature #1
 
 
 
-GROUP MEMBERS           ID              SECTION
+GROUP MEMBERS      -     ID        -      SECTION
 
 !. Abreham Atlaw    UGR/7107/12       3
 
