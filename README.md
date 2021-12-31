@@ -9,11 +9,11 @@ Business feature #1
 
 
 
-GROUP MEMBERS      -     ID        -      SECTION
+GROUP MEMBERS      ...    ID        ...    SECTION
 
-!. Abreham Atlaw    UGR/7107/12       3
+!. Abreham Atlaw  ...  UGR/7107/12   ...  3
 
-2. Aklile Yilma     UGR/7107/12       3
+2. Aklile Yilma   ...  UGR/7107/12   ...    3
 
-3. Temesgen Zewde   UGR/3848/12       2  
+3. Temesgen Zewde ...  UGR/3848/12   ...    2  
         
