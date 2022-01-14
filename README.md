@@ -18,5 +18,5 @@ GROUP MEMBERS      ...    ID        ...    SECTION
 
 3. Etsubdink Demeke .... UGR/6421/12   ...   3
 
-3. Temesgen Zewde ...  UGR/3848/12   ...    2  
+4. Temesgen Zewude ...  UGR/3848/12   ...    2  
         
