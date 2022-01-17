@@ -15,9 +15,13 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table( name = "client_certificatedetails")

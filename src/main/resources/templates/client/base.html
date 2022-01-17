@@ -37,10 +37,17 @@
 							<div class="d-lg-flex d-block">
 								<div class="d-flex flex-column flex-lg-row mt-3 my-lg-auto" th:if="${client}==null">
 									<a href="/auth/login" class="btn btn-outline-primary px-4 mx-3">LOGIN</a>
-									<a href="/auth/signup" class="btn btn-primary px-4 mx-3 mt-lg-0 mt-2">SIGNUP</a>
+									<a href="/auth/sign-up" class="btn btn-primary px-4 mx-3 mt-lg-0 mt-2">SIGNUP</a>
 								</div>
-								<div class="" th:unless="${client}==null">
-									
+								<div class="" th:if="${client}!=null">
+									<div class="bg-primary text-light px-4 py-2 rounded position-relative">
+										<span href="#" class="dropdown-toggle" role="button" data-bs-toggle="dropdown"><i class="fa fa-user"></i><span class="ml-3" th:text="${client.fullName}"></span></span>
+										<ul class="dropdown-menu">
+											<li class=""><a href="/account/manage" class="dropdown-item">Manage Account</a></li>
+											<li class=""><a href="/account/certificates" class="dropdown-item">My Certificates</a></li>
+											<li class=""><a href="/logout" class="dropdown-item">Logout</a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>

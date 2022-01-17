@@ -16,6 +16,8 @@ public class UserManager {
 	public UserManager(UserRepository repository, PasswordEncoder encoder){
 		this.repository = repository;
 		this.encoder = encoder;
+
+		//this.repository.save(new User("abreham@yahoo.com", encoder.encode("temppasswd"), Role.ADMIN));
 	}
 
 	public User createUser(String username, String password, Role role) throws UserExistsException{
