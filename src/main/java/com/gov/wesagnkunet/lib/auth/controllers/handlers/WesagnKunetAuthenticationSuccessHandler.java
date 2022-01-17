@@ -48,7 +48,7 @@ public class WesagnKunetAuthenticationSuccessHandler implements AuthenticationSu
 			throw new IllegalStateException();
 
 		GrantedAuthority authority = authorities.iterator().next();
-		String redirectUrl = redirectionMap.get(authority);
+		String redirectUrl = redirectionMap.get(authority.getAuthority());
 		if(redirectUrl == null)
 			throw new IllegalStateException();
 		return redirectUrl;

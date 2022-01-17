@@ -3,6 +3,8 @@ package com.gov.wesagnkunet.client.data.models;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -11,13 +13,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.Data;
 
 
 @Data
 @Entity
-@Table(name = "client_certificate")
+@Table( name = "client_certificatedetails")
 public class CertificateDetails {
 
 	@Id
@@ -33,6 +36,9 @@ public class CertificateDetails {
 	private Date issueDate;
 
 	private Date applicationDate;
+
+	@Column(unique = true)
+	private String token;
 
 
 	@Enumerated(EnumType.STRING)

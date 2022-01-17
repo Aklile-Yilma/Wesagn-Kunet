@@ -1,6 +1,7 @@
 package com.gov.wesagnkunet.lib.auth;
 
 import com.gov.wesagnkunet.lib.auth.data.models.User;
+import com.gov.wesagnkunet.lib.auth.data.models.User.Role;
 import com.gov.wesagnkunet.lib.auth.data.repositories.UserRepository;
 import com.gov.wesagnkunet.lib.auth.exceptions.UserExistsException;
 
@@ -17,12 +18,12 @@ public class UserManager {
 		this.encoder = encoder;
 	}
 
-	public User createUser(String username, String password) throws UserExistsException{
+	public User createUser(String username, String password, Role role) throws UserExistsException{
 
 		if(userExists(username))
 			throw new UserExistsException(String.format("User with username %s already exists.", username));
 		
-		User user = new User(username, encoder.encode(password));
+		User user = new User(username, encoder.encode(password), role);
 		repository.save(user);
 
 		return user;

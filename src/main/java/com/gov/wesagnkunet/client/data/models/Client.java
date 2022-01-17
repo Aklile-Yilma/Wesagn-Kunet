@@ -3,6 +3,9 @@ package com.gov.wesagnkunet.client.data.models;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -24,16 +27,13 @@ import lombok.Data;
 public class Client {
 
 	@Id
-	private Long id;
+	private String id;
 
 	@ManyToOne
 	private User user;
 
-	private String firstName;
-
-	private String middleName;
-
-	private String lastName;
+	@Embedded
+	private Name fullName;
 
 	private String photo;
 
@@ -48,14 +48,11 @@ public class Client {
 	@Embedded
 	private Address address;
 
+	@ManyToMany(mappedBy = "owners")
+	private List<CertificateDetails> certificates;
+
 	@Embedded
 	private Contact contact;
-
-	@Embedded
-	private Contact emergencyContact;
-
-	@ManyToMany(mappedBy = "client")
-	private List<Certificate> certificates;
 
 	public static enum Sex{
 		FEMALE, MALE
