@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -30,6 +31,7 @@ public class Client {
 	private String id;
 
 	@ManyToOne
+	@JoinColumn(unique = true, nullable = true)
 	private User user;
 
 	@Embedded

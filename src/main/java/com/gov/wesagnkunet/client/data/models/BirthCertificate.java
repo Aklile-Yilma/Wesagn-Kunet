@@ -23,17 +23,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(
-	name = "client_birthcertificate",
-	uniqueConstraints = @UniqueConstraint(columnNames = {"certificate_details_id"})
-	)
+@Table(name = "client_birthcertificate")
 public class BirthCertificate implements Certificate {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
 
-	@JoinColumn(nullable = false)
+	@JoinColumn(nullable = false, unique = true)
 	@ManyToOne
 	private CertificateDetails certificateDetails;
 
