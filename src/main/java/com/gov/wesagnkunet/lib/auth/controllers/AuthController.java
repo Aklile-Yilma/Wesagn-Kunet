@@ -1,5 +1,6 @@
 package com.gov.wesagnkunet.lib.auth.controllers;
 
+import com.gov.wesagnkunet.client.controllers.ClientController;
 import com.gov.wesagnkunet.lib.WesagnKunetController;
 
 import org.springframework.stereotype.Controller;
@@ -10,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-public class AuthController extends WesagnKunetController{
+public class AuthController extends ClientController{
 
-	@GetMapping("/login")
+	@GetMapping("/auth/login")
 	public String handleLogin(@RequestParam(value = "error", required = false) Object error, ModelMap modelMap){
 		
 

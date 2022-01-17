@@ -58,4 +58,8 @@ public class Tab {
 		return parentTab != null;
 	}
 
+	public boolean hasChildren(){
+		return childrenTabs.size() != 0;
+	}
+
 }

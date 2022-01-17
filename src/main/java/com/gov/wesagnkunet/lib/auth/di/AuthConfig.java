@@ -82,7 +82,7 @@ public class AuthConfig {
 							.antMatchers("/", "/**").permitAll()
 							.and()
 							.formLogin()
-							.loginPage("/login")
+							.loginPage("/auth/login")
 							.successHandler(authenticationSuccessHandler())
 							.and()
 							.build();
