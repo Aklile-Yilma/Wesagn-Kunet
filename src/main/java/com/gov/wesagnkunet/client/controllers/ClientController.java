@@ -2,14 +2,10 @@ package com.gov.wesagnkunet.client.controllers;
 
 
 import java.security.Principal;
-import java.util.Arrays;
-import java.util.List;
 
 import com.gov.wesagnkunet.client.data.models.Client;
 import com.gov.wesagnkunet.client.data.repositories.ClientRepository;
-import com.gov.wesagnkunet.lib.auth.UserManager;
 import com.gov.wesagnkunet.lib.auth.data.repositories.UserRepository;
-import com.gov.wesagnkunet.lib.webcontent.data.models.Tab;
 import com.gov.wesagnkunet.lib.webcontent.data.repositories.TabRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

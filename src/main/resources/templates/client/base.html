@@ -3,7 +3,7 @@
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 	<head>
-		<title layout:fragment="title">Agelgil Client</title>
+		<title layout:fragment="title">WESAGN KUNET</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 	
 		<link rel="stylesheet" th:href="@{/static/lib/libs/bootstrap/bootstrap.min.css}">
 		<link rel="stylesheet" th:href="@{/static/lib/libs/fontawesome/css/all.css}">
@@ -20,7 +20,7 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-lg-0 mt-3">
 							<li class="nav-item mr-4" th:each="tab: ${headerTabs}" th:classappend="${tab.childrenTabs.size !=0 } ? dropdown">
 
 								<a th:if="${tab.childrenTabs.size == 0 }" class="nav-link" th:href="${tab.url}" th:text="${tab.text}"></a>
@@ -32,12 +32,12 @@
 
 							</li>
 						</ul>
-						<div class="ml-lg-auto d-flex flex-column flex-lg-row mt-5 mt-lg-0">
+						<div class="ml-lg-auto d-flex flex-column flex-lg-row mt-0 mt-lg-0">
 						
 							<div class="d-lg-flex d-block">
-								<div class="d-flex flex-column flex-lg-row mt-5 my-lg-auto" th:if="${client}==null">
+								<div class="d-flex flex-column flex-lg-row mt-3 my-lg-auto" th:if="${client}==null">
 									<a href="/login" class="btn btn-outline-primary px-4 mx-3">LOGIN</a>
-									<a href="/signup" class="btn btn-primary px-4 mx-3">SIGNUP</a>
+									<a href="/signup" class="btn btn-primary px-4 mx-3 mt-lg-0 mt-2">SIGNUP</a>
 								</div>
 								<div class="" th:unless="${client}==null">
 									
@@ -51,43 +51,43 @@
 		
 		<main layout:fragment="main"></main>
 		
-		<footer class="bg-primary text-light">
-			<div class="d-flex flex-lg-row flex-column p-5">
-				<div class="col-md-3">
+		<footer class="bg-primary text-light container-fluid">
+			<div class="row p-md-5 p-3">
+				<div class="col-md-3 col-12 d-none d-md-block">
 					<div class="col-4 p-0">
 						<img th:src="@{/static/lib/libs/core/images/logo-light.png}" class="w-100">
 					</div>
 					<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum alias voluptas, est necessitatibus pariatur ducimus natus, earum fugit voluptatem!</p>
 				</div>
 
-				<div class="col-md-2 mx-auto">
+				<div class="col-md-2 mx-auto col-6 mt-5 mt-md-0">
 					<h5 class="font-weight-bold">Userful Links</h5>
 					<ul class="nav nav-dark flex-column my-lg-auto pt-4">
 						<li class="nav-item" th:each="tab: ${footerTabs}">
-							<a class="nav-link text-light text-lg-left text-center px-0" th:href="${tab.url}" th:text="${tab.text}"></a>
+							<a class="nav-link text-light px-0" th:href="${tab.url}" th:text="${tab.text}"></a>
 						</li>
 					</ul>
 				</div>
 
-				<div class="col-md-2 mx-auto">
+				<div class="col-md-2 mx-auto col-6 mt-5 mt-md-0">
 					<h5 class="font-weight-bold">Services</h5>
 					<ul class="nav nav-dark flex-column my-lg-auto pt-4">
 						<li class="nav-item" th:each="tab: ${footerTabsServices}">
-							<a class="nav-link text-light text-lg-left text-center px-0" th:href="${tab.url}" th:text="${tab.text}"></a>
+							<a class="nav-link text-light px-0" th:href="${tab.url}" th:text="${tab.text}"></a>
 						</li>
 					</ul>
 				</div>
 				
-				<form class="col-md-3 px-5" action="/newsletter/subscribe">
+				<form class="col-md-3 col-12 px-md-5 px-0 mt-5 mt-md-0" action="/newsletter/subscribe">
 					
 					<h4 class="font-weight-bold">Subscribe to our Newsletter</h4>
 					
 					<input type="email" name="email" class="form-control bg-transparent mt-3" placeholder="email@example.com">
-					<input type="submit" class="btn btn-light mt-2">
+					<input type="submit" value="SUBSCRIBE" class="btn btn-light mt-2 px-4">
 
 				</form>
 			</div>
-			<div class="text-center">
+			<div class="text-center mt-3">
 				Copyright &copy; 2021 | Wesagn Kunet
 			</div>
 		</footer>
