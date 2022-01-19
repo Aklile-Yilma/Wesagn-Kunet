@@ -4,9 +4,9 @@ Our project is about making the paper dependent system of birth, marriage, and d
 
 Business feature #1 Identification - identification refers to the process of associating a specific person with a specific identity. It is considered an important process because it addresses certain concerns about an individual, such as “Is the person who he/she claims to be?”, “Has this person been here before?”, or “Should this individual be allowed access to our system?”. A username, process ID, smart card, or anything else that may uniquely identify a subject or person can be used for identification.
 
-Business feature #2 Digital Certificate
+Business feature #2 Digital Certificate- where users can use their phone to view or give proof of their valid certificate.
 
-Business feature #3 Certificate Management
+Business feature #3 Certificate Management- 
         
 
 

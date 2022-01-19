@@ -15,10 +15,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "lib_auth_user")
 public class User implements UserDetails {
@@ -31,8 +33,6 @@ public class User implements UserDetails {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
-
-
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -43,7 +43,7 @@ public class User implements UserDetails {
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class User implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		return true;	
+		return true;
 	}
 
 
