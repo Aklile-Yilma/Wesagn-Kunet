@@ -18,7 +18,7 @@ public class HomeController extends ClientController{
 	@GetMapping("/")
 	public String displayHome(){
 		
-		return "/client/home/home.html";
+		return "/client/home/home";
 	}
 	
 }
