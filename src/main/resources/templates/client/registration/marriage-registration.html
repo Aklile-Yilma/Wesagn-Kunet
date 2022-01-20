@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{client/base.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" th:href="@{/static/lib/libs/bootstrap/bootstrap-filestyle.min.js}">
+    <link rel="stylesheet" th:href="@{/static/libs/bootstrap/jquery-3.6.0.min.js}">
+    <title layout:fragment="title">Marriage Registration</title>
+</head>
+
+<body>
+    <main layout:fragment="main">
+        <div class="container">
+            <h2 class="mt-lg-5 font-weight-bold">Marriage Registration</h2>
+            <p>Short paragragh Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, magnam!</p>
+            <form action="" method="POST">
+
+                <div class="border border-dark rounded p-lg-5 mb-lg-5 mt-lg-5" id="applierForm">
+                    <h2 class="font-weight-normal ">Applier's Information</h2>
+                    <div class="form-row mt-xl-5">
+                        <div class="form-group col-md-6">
+                            <label for="firstName" class="form-label mt-lg-3">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="First name">
+
+                            <label for="email" class="from-label mt-lg-3">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="email">
+                        </div>
+                        <div class="form-group col-md-6">
+
+                            <label for="lastName" class="form-label mt-lg-3">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+
+                            <label for="pNumber" class="form-label mt-lg-3">Phone Number</label>
+                            <input type="tel" class="form-control" id="pNumber" placeholder="Phone Number">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="border border-dark rounded p-lg-5 mb-lg-5 mt-lg-5" id="marriageInfo">
+                    <h2 class="font-weight-normal ">Marriage Information</h2>
+                    <div class="form-row ">
+                        <div class="col">
+                            <label for="cOfMarriag" class="form-label mt-lg-3">Country of Marriage</label>
+                            <select name="country" id="cOfMarriag" class="custom-select">
+                                <option value="" selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="cityOfMarriage" class="form-label mt-lg-3">City</label>
+                            <select name="city" id="cityOfMarriage" class="custom-select">
+                                <option value="" selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="subCity" class="form-label mt-lg-3">Sub City</label>
+                            <select name="subcity" id="subCity" class="custom-select">
+                                <option value="" selected>Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="col">
+                            <label for="woreda" class="form-label mt-lg-3">Woreda</label>
+                            <select name="woreda" id="woreda" class="custom-select">
+                                <option value="" selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="marriageDat" class="form-label mt-lg-3"> Date of Marriage</label>
+                            <input type="date" class="form-control" id="marriageDate">
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="border border-dark rounded p-lg-5 mb-lg-5 mt-lg-5" id="wifeInfo">
+                    <h2 class="font-weight-normal">Wife's Information</h2>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="wFirstName" class="form-label mt-lg-3"> First Name</label>
+                            <input type="text" id="wFirstName" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="wFatherName" class="form-label mt-lg-3">Father Name</label>
+                            <input type="text" class="form-control" id="wFatherName">
+                        </div>
+                        <div class="col">
+                            <label for="wGFName" class="form-label mt-lg-3">Grand Father Name</label>
+                            <input type="text" id="wGFName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="wNationality" class="form-label mt-lg-3">Nationality</label>
+                            <select name="nationality" id="wNationality" class="custom-select">
+                                <option value="" selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="wDateOfB" class="form-label mt-lg-3">Date of Birth</label>
+                            <input type="date" id="wDateOfB" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="wbCeritID" class="form-labe mt-lg-3">Birth Certificate ID</label>
+                            <input type="text" id="wbCeritID" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <!-- <label for="wPhoto" class="form-label mt-lg-3">Photo</label>
+                            <input type="file" class="form-control "> -->
+
+
+
+                            <label for="wPhoto" class="control-label form-label mt-lg-3">Photo</label>
+                            <input type="file" id="wPhoto" class="filestyle form-control">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="border border-dark rounded p-lg-5 mb-lg-5 mt-lg-5" id="husbanInfo">
+                    <h2 class="font-weight-normal">Husband's Information</h2>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="hFirstName" class="form-label mt-lg-3"> First Name</label>
+                            <input type="text" id="hFirstName" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="hFatherName" class="form-label mt-lg-3">Father Name</label>
+                            <input type="text" class="form-control" id="hFatherName">
+                        </div>
+                        <div class="col">
+                            <label for="hGFName" class="form-label mt-lg-3">Grand Father Name</label>
+                            <input type="text" id="hGFName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="hNationality" class="form-label mt-lg-3">Nationality</label>
+                            <select name="nationality" id="hNationality" class="custom-select">
+                                <option value="" selected>Select</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="hDateOfB" class="form-label mt-lg-3">Date of Birth</label>
+                            <input type="date" id="hDateOfB" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label for="hbCeritID" class="form-labe mt-lg-3">Birth Certificate ID</label>
+                            <input type="text" id="hbCeritID" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col">
+                            <!-- <label for="hPhoto" class="form-label mt-lg-3">Photo</label>
+                            <input type="file" class="form-control "> -->
+
+                            <label for="hPhoto" class="control-label form-label mt-lg-3">Photo</label>
+                            <input id="hPhoto" type="file" class="filestyle form-control" data-buttonText="Select photo">
+                        </div>
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <input style="margin-left:75%" class="btn btn-primary form-control form-control-lg mb-lg-4 w-25" type="submit" value="Submit">
+
+
+
+
+
+
+
+
+            </form>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
