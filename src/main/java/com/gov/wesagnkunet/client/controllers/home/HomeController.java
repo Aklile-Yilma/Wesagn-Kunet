@@ -25,8 +25,13 @@ public class HomeController extends ClientController{
 
 	@GetMapping("/")
 	public String displayHome(){
+<<<<<<< HEAD
 	
 		return "/client/home/home.html";
+=======
+		
+		return "/client/home/home";
+>>>>>>> origin
 	}
 	
 }

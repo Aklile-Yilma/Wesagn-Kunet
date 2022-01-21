@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{admin/dashboard/base.html}"
+	  >
+	  <head>
+		  <title layout:fragment="title">MARRIAGE REGISTRATION REQUESTS</title>
+	  </head>
+	<body>
+		
+		<main layout:fragment="main">
+			<div class="container">
+				<div class="row">
+					<div class="">
+						<h1 class="local-fs-3 font-weight-bold">Requests</h1>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="accordion my-4" id="marraigeAccordion">
+						<div class="accordion-item  border border-dark overflow-hidden">
+							<h3 class="accordion-header bg-light" id="marriageHeading">
+								<div class="accordion-button px-4 py-3 text-dark font-weight-bold bg-white local-fs-5 d-flex" type="button" data-bs-toggle="collapse" data-bs-target='#marriageCollapse' aria-expanded="true" aria-controls="#marriageCollapse">
+									Marriage Requests
+								</div>
+							</h3>
+							<div id="marriageCollapse" class="accordion-collapse collapse show" data-bs-parent='#marriageAccordion'> 
+								<div class="accordion-body">
+									<div class="container-fluid">
+										<div class="row my-3 font-weight-bold border-bottom py-3">
+											<h4 class="col-2 font-weight-bold local-fs-4">Id</h4>
+											<h4 class="col-4 font-weight-bold local-fs-4">Applier Full Name</H4>
+											<h4 class="col-3 font-weight-bold local-fs-4">Application Date</h4>
+											<h4 class="col-3 font-weight-bold local-fs-4"></h4>
+										</div>
+										<div th:each="request: ${marriageRequests}" class="row my-3 border-bottom py-2">
+											<div class="col-2 my-auto">
+												[[${request.id}]]
+											</div>
+											<div class="col-4 my-auto">
+												[[${request.certificateRequestDetails.client.fullName}]]
+											</div>
+											<div class="col-3 my-auto">
+												[[${request.certificateRequestDetails.applicationDate}]]
+											</div>
+											<div class="col-3 d-flex">
+												
+												<button type="button" class="btn btn-outline-primary rounded rounded-pill ml-auto px-5 py-2" data-bs-toggle="modal" th:data-bs-target="${'#marriageModal'+request.id}">
+													VIEW
+												</button>
+												
+												<div class="modal fade text-dark" th:id="${'marriageModal'+request.id}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title">Details</h5>
+																	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+															</div>
+															<div class="modal-body">
+																<div class="container-fluid">
+																	<div th:with="address=${request.marriageAddress}" th:remove="tag" layout:insert="~{admin/dashboard/components/address_view.html}">
+																	</div>
+																	<div class="row">
+																		<div class="col-6">
+																			Marriage Date
+																		</div>
+																		<div class="col-6">
+																			[[${request.marriageDate}]]
+																		</div>
+																	</div>
+																	<div th:with="spouse=${request.wife}" th:remove="tag">
+																		<div th:with="spouseType='Wife'" layout:insert="~{admin/dashboard/components/spouse_view.html}" th:remove="tag"></div>
+																	</div>
+																	<div th:with="spouse=${request.husband}" th:remove="tag">
+																		<div th:with="spouseType='Husband'" layout:insert="~{admin/dashboard/components/spouse_view.html}" th:remove="tag"></div>
+																	</div>
+																
+
+																</div>
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+																<form class="" method="post" action="/admin/dashboard/request/marriage" th:object="${marriageApprovalForm}">
+																	<input type="hidden" th:value="${_csrf.token}" name="_csrf">
+																	<input type="hidden" value="false" name="approved">
+																	<input type="hidden" th:value="${request.id}" name="request">
+																	<button type="submit" class="btn btn-danger">Delete</button>
+																</form>
+																<form class="" method="post" action="/admin/dashboard/request/marriage" th:object="${marriageApprovalForm}">
+																	<input type="hidden" th:value="${_csrf.token}" name="_csrf">
+																	<input type="hidden" value="true" name="approved">
+																	<input type="hidden" th:value="${request.id}" name="request">
+																	<button type="submit" class="btn btn-success">Approve</button>
+																</form>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+		</main>
+
+	</body>
+
+</html>

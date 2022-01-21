@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{client/base.html}"
+	  >
+	  <head>
+		  <title layout:fragment="title">Marriage Registrtion | WESAGN KUNET</title>
+	  </head>
+	<body>
+		
+		<main layout:fragment="main" class="container-fluid col-11">
+			
+			<div class="local-mt-6">
+				<h1>Marriage Registration</h1>
+				<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae distinctio ipsam earum eligendi fugit</p>
+			</div>
+
+			<form class=" local-mb-7 mt-5" action="" method="post" enctype="multipart/form-data" th:object="${marriageRegistrationForm}">
+				<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+				<section class="my-5" th:with="section='marriage'" layout:insert="~{client/services/components/form_accordion.html}">
+					<div layout:fragment="accordionHeading">Marriage Information</div>
+					<div layout:fragment="accordionBody"  th:with="includeHouseNumber=false">
+						<div class="row">
+							<div class="row" th:remove="tag" th:with="fieldName='marriageAddress'"
+								layout:insert="~{client/services/components/address_inputs.html}"
+							>
+							</div>
+							<div class="mt-3 col-4">
+								<label for="dateOfBirth" class="form-label mb-1">Date of Marriage</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="date" class="form-control border-left-0 bg-light" th:field="*{marriageDate}" placeholder="Date of Marriage" required>
+								</div>
+								<div th:if="${#fields.hasErrors('marriageDate')}" class="text-danger" th:errors="*{marriageDate}"></div>
+							</div>
+						</div>	
+					</div>
+				</section>
+
+				<section class="my-5" th:with="section='wife'" layout:insert="~{client/services/components/form_accordion.html}">
+					<div layout:fragment="accordionHeading">Wife's Information</div>
+					<div layout:fragment="accordionBody">
+						<div class="row">
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">First Name</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{wife.fullName.firstName}" placeholder="First Name" required>
+								</div>
+								<div th:if="${#fields.hasErrors('wife.fullName.firstName')}" class="text-danger" th:errors="*{wife.fullName.firstName}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Father Name</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{wife.fullName.middleName}" placeholder="Father Name" required>
+								</div>
+								<div th:if="${#fields.hasErrors('wife.fullName.middleName')}" class="text-danger" th:errors="*{wife.fullName.middleName}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Grand Father Name</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{wife.fullName.lastName}" placeholder="Grand Father Name" required>
+								</div>
+								<div th:if="${#fields.hasErrors('wife.fullName.lastName')}" class="text-danger" th:errors="*{wife.fullName.lastName}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Nationality</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{wife.nationality}" placeholder="Nationality" required>
+								</div>
+								<div th:if="${#fields.hasErrors('wife.nationality')}" class="text-danger" th:errors="*{wife.nationality}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Date of Birth</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="date" class="form-control border-left-0 bg-light" th:field="*{wife.dateOfBirth}" placeholder="Date of Birth" required>
+								</div>
+								<div th:if="${#fields.hasErrors('wife.dateOfBirth')}" class="text-danger" th:errors="*{wife.dateOfBirth}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Photo</label>
+								<input type="file" class="form-control border-left-0 bg-light" th:field="*{wife.photo}"  required>
+								<div th:if="${#fields.hasErrors('wife.photo')}" class="text-danger" th:errors="*{wife.photo}"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="my-5" th:with="section='husband'" layout:insert="~{client/services/components/form_accordion.html}">
+					<div layout:fragment="accordionHeading">Husband's Information</div>
+					<div layout:fragment="accordionBody">
+						<div class="row">
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">First Name</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{husband.fullName.firstName}" placeholder="First Name" required>
+								</div>
+								<div th:if="${#fields.hasErrors('husband.fullName.firstName')}" class="text-danger" th:errors="*{husband.fullName.firstName}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Father Name</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{husband.fullName.middleName}" placeholder="Father Name" required>
+								</div>
+								<div th:if="${#fields.hasErrors('husband.fullName.middleName')}" class="text-danger" th:errors="*{husband.fullName.middleName}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Grand Father Name</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{husband.fullName.lastName}" placeholder="Grand Father Name" required>
+								</div>
+								<div th:if="${#fields.hasErrors('husband.fullName.lastName')}" class="text-danger" th:errors="*{husband.fullName.lastName}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Nationality</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="text" class="form-control border-left-0 bg-light" th:field="*{husband.nationality}" placeholder="Nationality" required>
+								</div>
+								<div th:if="${#fields.hasErrors('husband.nationality')}" class="text-danger" th:errors="*{husband.nationality}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Date of Birth</label>
+								<div class="input-group">
+									<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+									<input type="date" class="form-control border-left-0 bg-light" th:field="*{husband.dateOfBirth}" placeholder="Date of Birth" required>
+								</div>
+								<div th:if="${#fields.hasErrors('husband.dateOfBirth')}" class="text-danger" th:errors="*{husband.dateOfBirth}"></div>
+							</div>
+							<div class="mt-3 col-4">
+								<label class="form-label mb-1">Photo</label>
+								<input type="file" class="form-control border-left-0 bg-light" th:field="*{husband.photo}"  required>
+								<div th:if="${#fields.hasErrors('husband.photo')}" class="text-danger" th:errors="*{husband.photo}"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="d-flex">
+					<input type="submit" value="SUBMIT" class="btn btn-primary px-5 ml-auto">
+				</div>
+			</form>
+		</main>
+	</body>
+</html>

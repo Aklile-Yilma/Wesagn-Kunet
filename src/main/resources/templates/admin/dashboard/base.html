@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+	<head>
+		<title layout:fragment="title">Wesagn Kunet Admin</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 	
+		<link rel="stylesheet" th:href="@{/static/lib/libs/bootstrap/bootstrap.original.min.css}">
+		<link rel="stylesheet" th:href="@{/static/lib/libs/bootstrap/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/static/lib/libs/fontawesome/css/all.css}">
+		<link rel="stylesheet" th:href="@{/static/lib/libs/local/local.css}">
+	</head>
+	<body class="container-fluid bg-light p-5">
+		<header class="d-flex mb-5">
+			<div class="ml-auto position-relative">
+				<button class="dropdown-toggle btn btn-outline-primary px-4 py-2 rounded rounded-pill" role="button" data-bs-toggle="dropdown"><i class="fa fa-user"></i><span class="ml-3" th:text="${admin.fullName}"></span></button>
+				<ul class="dropdown-menu">
+					<li class="">
+						<form action="/logout" method="post">
+							<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+							<input type="submit" value="Logout" class="dropdown-item">
+						</form>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<main class="w-100" layout:fragment="main">
+
+		</main>
+		
+		<script src="/static/lib/libs/bootstrap/bootstrap.bundle.min.js"></script>
+	</body>
+	
+	  
+
+
+ </html>
