@@ -1,4 +1,4 @@
-package com.gov.wesagnkunet.client.controllers.home;
+package com.gov.wesagnkunet.client.controllers.core;
 
 import java.util.Arrays;
 import java.util.List;
