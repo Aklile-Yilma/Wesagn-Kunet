@@ -1,4 +1,4 @@
-package com.gov.wesagnkunet.client.controllers.home;
+package com.gov.wesagnkunet.client.controllers.core;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,13 +25,8 @@ public class HomeController extends ClientController{
 
 	@GetMapping("/")
 	public String displayHome(){
-<<<<<<< HEAD
 	
-		return "/client/home/home.html";
-=======
-		
-		return "/client/home/home";
->>>>>>> origin
+		return "/client/core/home.html";
 	}
 	
 }
