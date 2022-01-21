@@ -29,7 +29,7 @@ public class MarriageCertificate implements Certificate{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Long id;
 
 	@JoinColumn(nullable = false)
 	@ManyToOne
@@ -63,10 +63,27 @@ public class MarriageCertificate implements Certificate{
 	})
 	private Spouse husband;
 
+
+	public MarriageCertificate(
+		CertificateDetails certificateDetails, 
+		Address marriageAddress,
+		Date marriageDate,
+		Spouse wife,
+		Spouse husband
+	){
+		this.certificateDetails = certificateDetails;
+		this.marriageAddress = marriageAddress;
+		this.marriageDate = marriageDate;
+		this.wife = wife;
+		this.husband = husband;
+	}
+
 	
+	@NoArgsConstructor
+	@AllArgsConstructor
 	@Data
 	@Embeddable
-	private class Spouse{
+	public static class Spouse{
 
 		@Embedded
 		private Name fullName;

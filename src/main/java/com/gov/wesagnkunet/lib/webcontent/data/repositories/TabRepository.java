@@ -8,8 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TabRepository extends CrudRepository<Tab, Integer>{
 
-	public List<Tab> findTabByClazz(String clazz);
+	public List<Tab> findByClazzOrderByRelativeOrderAsc(String clazz);
 
-	public List<Tab> findByClazzAndParentTab(String clazz, Tab parentTab);
+	public List<Tab> findByClazzAndParentTabOrderByRelativeOrderAsc(String clazz, Tab parentTab);
 	
 }

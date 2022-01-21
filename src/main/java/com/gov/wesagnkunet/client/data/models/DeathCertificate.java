@@ -27,7 +27,7 @@ public class DeathCertificate implements Certificate {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Long id;
 	
 	@JoinColumn(nullable = false)
 	@ManyToOne

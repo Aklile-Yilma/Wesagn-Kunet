@@ -77,47 +77,47 @@
 					
 					<div class="mt-3">
 						<label for="country" class="form-label mb-1">Country</label>
-						<div class="input-group">
-							<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
-							<input type="text" class="form-control border-left-0 bg-light" th:field="*{country}" placeholder="Country" required>
-						</div>
-						<div th:if="${#fields.hasErrors('country')}" class="text-danger" th:errors="*{country}"></div>
+						<select name="address.country" id="country" class="form-select form-control bg-transparent" required>
+							<option value="">Select</option>
+							<option th:each="country: ${countries}" th:value="${country.id}">[[${country.name}]]</option>
+						</select>
+						<div th:if="${#fields.hasErrors('address.country')}" class="text-danger" th:errors="*{address.country}"></div>
 					</div>
 
 					<div class="mt-3">
 						<label for="city" class="form-label mb-1">City</label>
 						<div class="input-group">
 							<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
-							<input type="text" class="form-control border-left-0 bg-light" th:field="*{city}" placeholder="City" required>
+							<input type="text" class="form-control border-left-0 bg-light" name="address.city" placeholder="City" required>
 						</div>
-						<div th:if="${#fields.hasErrors('city')}" class="text-danger" th:errors="*{city}"></div>
+						<div th:if="${#fields.hasErrors('address.city')}" class="text-danger" th:errors="*{address.city}"></div>
 					</div>
 
 					<div class="mt-3">
 						<label for="subCity" class="form-label mb-1">Sub City</label>
 						<div class="input-group">
 							<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
-							<input type="text" class="form-control border-left-0 bg-light" th:field="*{subCity}" placeholder="Sub City" required>
+							<input type="text" class="form-control border-left-0 bg-light" name="address.subCity" placeholder="Sub City" required>
 						</div>
-						<div th:if="${#fields.hasErrors('subCity')}" class="text-danger" th:errors="*{subCity}"></div>
+						<div th:if="${#fields.hasErrors('address.subCity')}" class="text-danger" th:errors="*{address.subCity}"></div>
 					</div>
 					
 					<div class="mt-3">
 						<label for="wereda" class="form-label mb-1">Wereda</label>
 						<div class="input-group">
 							<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
-							<input type="number" class="form-control border-left-0 bg-light" th:field="*{wereda}" placeholder="Wereda" required>
+							<input type="number" class="form-control border-left-0 bg-light" name="address.wereda" id="wereda" placeholder="Wereda" required>
 						</div>
-						<div th:if="${#fields.hasErrors('wereda')}" class="text-danger" th:errors="*{wereda}"></div>
+						<div th:if="${#fields.hasErrors('address.wereda')}" class="text-danger" th:errors="*{address.wereda}"></div>
 					</div>
 
 					<div class="mt-3">
 						<label for="houseNumber" class="form-label mb-1">House Number</label>
 						<div class="input-group">
 							<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
-							<input type="number" class="form-control border-left-0 bg-light" th:field="*{houseNumber}" placeholder="House Number">
+							<input type="number" class="form-control border-left-0 bg-light" name="address.houseNumber" placeholder="House Number">
 						</div>
-						<div th:if="${#fields.hasErrors('houseNumber')}" class="text-danger" th:errors="*{houseNumber}"></div>
+						<div th:if="${#fields.hasErrors('address.houseNumber')}" class="text-danger" th:errors="*{address.houseNumber}"></div>
 					</div>
 
 					<div class="mt-3">

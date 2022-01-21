@@ -52,15 +52,16 @@ public class AuthConfig {
 
 	@Bean
 	public List<String> clientOnlyPatterns(){
-		return Arrays.asList( //TODO: ADD MORE
-			"/account/"
+		return Arrays.asList( 
+			"/account/**",
+			"/registration/**"
 		);
 	}
 
 	@Bean
 	public List<String> adminOnlyPatterns(){
 		return Arrays.asList(
-			"/admin/dashboard/"
+			"/admin/dashboard/**"
 		);
 	}
 
@@ -84,6 +85,11 @@ public class AuthConfig {
 							.formLogin()
 							.loginPage("/auth/login")
 							.successHandler(authenticationSuccessHandler())
+							.and()
+							.logout()
+							.permitAll()
+							.logoutSuccessUrl("/")
+							.logoutUrl("/logout")
 							.and()
 							.build();
 

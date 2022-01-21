@@ -29,7 +29,7 @@ public class CertificateDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Long id;
 
 	@ManyToMany
 	private List<Client> owners;
@@ -41,12 +41,14 @@ public class CertificateDetails {
 
 	private Date applicationDate;
 
-	@Column(unique = true)
-	private String token;
-
-
 	@Enumerated(EnumType.STRING)
 	private Type type;
+
+	public CertificateDetails(Date issueDate, Date applicationDate, Type type){
+		this.issueDate = issueDate;
+		this.applicationDate = applicationDate;
+		this.type = type;
+	}
 
 	public static enum Type{
 		BIRTH, MARRIAGE, DEATH

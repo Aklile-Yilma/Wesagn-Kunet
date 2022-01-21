@@ -2,9 +2,12 @@ package com.gov.wesagnkunet.client.controllers;
 
 
 import java.security.Principal;
+import java.util.List;
 
 import com.gov.wesagnkunet.client.data.models.Client;
+import com.gov.wesagnkunet.client.data.models.Address.Country;
 import com.gov.wesagnkunet.client.data.repositories.ClientRepository;
+import com.gov.wesagnkunet.client.data.repositories.CountryRepository;
 import com.gov.wesagnkunet.lib.auth.data.repositories.UserRepository;
 import com.gov.wesagnkunet.lib.webcontent.data.repositories.TabRepository;
 
@@ -27,8 +30,11 @@ public class ClientController {
 	@Autowired
 	private TabRepository tabRepository;
 
-	@ModelAttribute
-	public Client addClient(Principal principal){
+	@Autowired
+	private CountryRepository countryRepository;
+
+	@ModelAttribute("client")
+	public Client getClient(Principal principal){
 		if(principal == null)
 			return null;
 		
@@ -41,10 +47,15 @@ public class ClientController {
 	@ModelAttribute
 	public void setupModelMap(ModelMap modelMap){
 
-		modelMap.addAttribute("headerTabs", tabRepository.findByClazzAndParentTab("client_header", null));
-		modelMap.addAttribute("footerTabs", tabRepository.findByClazzAndParentTab("client_footer", null));
-		modelMap.addAttribute("footerTabsServices", tabRepository.findByClazzAndParentTab("client_footer_service", null));
+		modelMap.addAttribute("headerTabs", tabRepository.findByClazzAndParentTabOrderByRelativeOrderAsc("client_header", null));
+		modelMap.addAttribute("footerTabs", tabRepository.findByClazzAndParentTabOrderByRelativeOrderAsc("client_footer", null));
+		modelMap.addAttribute("footerTabsServices", tabRepository.findByClazzAndParentTabOrderByRelativeOrderAsc("client_footer_service", null));
 		
+	}
+
+	@ModelAttribute(name = "countries")
+	private Iterable<Country> countries(){
+		return countryRepository.findAll();
 	}
 
 }

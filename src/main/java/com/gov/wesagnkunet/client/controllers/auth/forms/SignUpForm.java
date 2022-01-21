@@ -10,10 +10,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.gov.wesagnkunet.client.controllers.services.forms.components.AddressForm;
 import com.gov.wesagnkunet.client.data.models.Address;
 import com.gov.wesagnkunet.client.data.models.Client;
 import com.gov.wesagnkunet.client.data.models.Contact;
 import com.gov.wesagnkunet.client.data.models.Name;
+import com.gov.wesagnkunet.client.data.models.Address.Country;
 import com.gov.wesagnkunet.client.data.models.Client.BloodType;
 import com.gov.wesagnkunet.client.data.models.Client.Sex;
 import com.gov.wesagnkunet.client.data.repositories.ClientRepository;
@@ -81,19 +83,7 @@ public class SignUpForm {
 	@NotNull
 	private Sex sex;//
 
-	@NotBlank
-	private String country;//
-
-	@NotNull
-	private String city;//
-
-	@NotNull
-	private String subCity;//
-
-	@NotNull
-	private Integer wereda;//
-
-	private Integer houseNumber;//
+	private AddressForm address;
 
 	@NotBlank
 	private String phoneNumber;
@@ -112,7 +102,6 @@ public class SignUpForm {
 		return password.equals(confirmPassword);
 	}
 
-
 	public Client createClient() throws UserExistsException{
 		User user = userManager.createUser(email, password, Role.CLIENT);
 		Client client = new Client(
@@ -122,13 +111,7 @@ public class SignUpForm {
 			dateOfBirth,
 			bloodType,
 			sex,
-			new Address(
-				country,
-				city,
-				subCity,
-				wereda,
-				houseNumber
-			),
+			address.toAddress(),
 			new Contact(
 				email,
 				phoneNumber

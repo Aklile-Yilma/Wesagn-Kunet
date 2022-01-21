@@ -42,6 +42,8 @@ public class Tab {
 	@ManyToOne
 	private Tab parentTab;
 
+	private String icon;
+
 	@OneToMany(mappedBy = "parentTab")
 	private List<Tab> childrenTabs;
 
@@ -52,6 +54,15 @@ public class Tab {
 		this.relativeOrder = relativeOrder;
 		this.clazz= clazz;
 		this.parentTab = parentTab;
+	}
+	
+	public Tab(String text, String url, Integer relativeOrder, String clazz, Tab parentTab, String icon){
+		this.text = text;
+		this.url = url;
+		this.relativeOrder = relativeOrder;
+		this.clazz= clazz;
+		this.parentTab = parentTab;
+		this.icon = icon;
 	}
 
 	public boolean hasParent(){

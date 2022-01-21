@@ -5,6 +5,7 @@
 	<head>
 		<title layout:fragment="title">WESAGN KUNET</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 	
+		<link rel="stylesheet" th:href="@{/static/lib/libs/bootstrap/bootstrap.original.min.css}">
 		<link rel="stylesheet" th:href="@{/static/lib/libs/bootstrap/bootstrap.min.css}">
 		<link rel="stylesheet" th:href="@{/static/lib/libs/fontawesome/css/all.css}">
 		<link rel="stylesheet" th:href="@{/static/lib/libs/local/local.css}">
@@ -45,7 +46,12 @@
 										<ul class="dropdown-menu">
 											<li class=""><a href="/account/manage" class="dropdown-item">Manage Account</a></li>
 											<li class=""><a href="/account/certificates" class="dropdown-item">My Certificates</a></li>
-											<li class=""><a href="/logout" class="dropdown-item">Logout</a></li>
+											<li class="">
+												<form action="/logout" method="post">
+													<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+													<input type="submit" value="Logout" class="dropdown-item">
+												</form>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -100,6 +106,5 @@
 		</footer>
 		<script th:src="@{/static/lib/libs/bootstrap/bootstrap.bundle.min.js}"></script>
 	</body>
-
 
 </html>
