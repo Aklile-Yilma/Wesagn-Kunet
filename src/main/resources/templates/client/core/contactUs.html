@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{client/base.html}"
+	  >
+<head>
+    <title layout-fragment="title">Contact Us</title>
+</head>
+
+<body class="bg-light">
+    <main layout:fragment="main" class="container-fluid m-auto">
+        <h1 class="text-center mt-lg-5 mb-lg-5">CONTACT US</h1>
+ 
+
+        <div class="form-row ">
+            <div class="border border-dark rounded local-br-3 p-lg-5 col-4 col-lg-5 ml-lg-5">
+                <h2 class="text-center m-lg-5">Contact info</h2>
+                <div class="ml-lg-5 p-2 d-flex">
+                    <h5  class="ml-lg-5">Phone Number </h5>  <a href="tel:+2519116112233" class="text-right ml-auto">+2519116112233</a>
+                </div>
+
+                <div class="ml-lg-5 p-2 d-flex">
+                    <h5  class="ml-lg-5">E-Mail</h5>  <a href="mailto:wesagnkunet.gov@gmail.com" class="text-right ml-auto">contact@wesagnkunet.gov.et</a>
+                </div>
+
+                <div class="ml-lg-5 p-2 d-flex">
+                    <h5  class="ml-lg-5">Address</h5>  <p class="text-right ml-auto">Bole S/C BLDG, Megenagna, Addis Ababa, Ethiopia</p>
+                </div>
+                  
+            </div>
+    
+            <div class="mapouter border-dark col-6 m-lg-auto mb-lg-3">
+                    <div class="gmap_canvas" >
+                    <iframe width="600" height="500" id="gmap_canvas" 
+                    src="https://maps.google.com/maps?q=AAiT&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                </iframe>
+                <a href="https://www.whatismyip-address.com/divi-discount/"></a>
+                <br>
+                <style>.mapouter{position:relative;text-align:right;height:500px;width:600px;          
+                }
+                        .gmap_canvas{margin:auto;}
+                </style>
+                <a href="https://www.embedgooglemap.net">google maps for web site</a>
+                <style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+                </style>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row d-flex m-lg-5 mt-lg-5 local-mt-8">
+
+        <div class="col-lg-5 text-center ">
+            <h2>Have Some Questions?</h2>
+            <p>Fill out this form and we'll reply as fast as possible</p>
+            <div class="m-auto">
+                <i class="fas fa-envelope-open fa-10x text-primary"></i>
+            </div>
+         
+        </div>
+
+        <form class="col-lg-5 border border-dark bg-gray p-lg-5 ml-lg-auto ">
+            
+                <div class="form-row">
+                    <div class="col rounded">
+                        <label for="firstName" class="form-label mt-2">First Name</label>
+                        <input type="text"
+                                id="firstName"
+                            class="form-control w-20"
+                        >
+                    </div>
+        
+                    <div class="col">
+                        <label for="lastName" class="form-label mt-2">Last Name</label>
+                        <input type="text"
+                                id="lastName"
+                            class="form-control w-20"
+                           
+                        >
+                    </div>
+    
+                </div>
+    
+                <div class="form-group" >
+                    <label for="phoneNumber" class="form-label">Phone number</label>
+                    <input type="text"
+                           id="phoneNumber"
+                           class="form-control"
+                           
+                             >
+                </div>
+    
+                <div class="form-group" >
+                    <label for="email" class="form-label">E-Mail</label>
+                    <input type="text"
+                           id="email"
+                           class="form-control"
+                        >
+                </div>
+    
+                <div class="form-group" >
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5"  style="resize: none;"></textarea>
+                </div>
+
+                
+                    <button type="submit" class="btn btn-primary form-control mt-lg-5 " style="width: 30%; height: 10%;">Submit</button>
+                
+              
+            
+        </form>
+     
+
+ </div>
+    </main>
+    
+   
+</body>
+
+</html>
