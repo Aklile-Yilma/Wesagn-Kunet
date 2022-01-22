@@ -15,7 +15,6 @@ import com.gov.wesagnkunet.client.data.models.Client;
 import com.gov.wesagnkunet.client.data.models.MarriageCertificate.Spouse;
 import com.gov.wesagnkunet.lib.media.services.FileStorageService;
 
-import org.apache.groovy.parser.antlr4.GroovyParser.SuperPrmrAltContext;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;

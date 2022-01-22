@@ -1,23 +1,21 @@
 package com.gov.wesagnkunet;
 
 import java.util.Arrays;
+
 import java.util.List;
 
-import com.gov.wesagnkunet.admin.data.models.Admin;
 import com.gov.wesagnkunet.admin.data.repositories.AdminRepository;
-import com.gov.wesagnkunet.client.data.models.Name;
 import com.gov.wesagnkunet.client.data.models.Address.Country;
 import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.data.repositories.CountryRepository;
 import com.gov.wesagnkunet.client.data.repositories.NationalityRepository;
 import com.gov.wesagnkunet.lib.auth.UserManager;
-import com.gov.wesagnkunet.lib.auth.data.models.User;
-import com.gov.wesagnkunet.lib.auth.data.models.User.Role;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
 
 @SpringBootApplication
 public class WesagnkunetApplication {

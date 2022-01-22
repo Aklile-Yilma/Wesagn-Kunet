@@ -79,7 +79,11 @@
 						<label for="country" class="form-label mb-1">Country</label>
 						<select name="address.country" id="country" class="form-select form-control bg-transparent" required>
 							<option value="">Select</option>
-							<option th:each="country: ${countries}" th:value="${country.id}">[[${country.name}]]</option>
+							<div th:remove="tag" th:each="country: ${countries}" th:object="${country}">
+								<option th:value="*{id}" th:text="*{name}" th:if="*{name}!='Ethiopia'"></option>
+								<option th:value="*{id}" th:text="*{name}" th:if="*{name}=='Ethiopia'" selected></option>
+							</div>
+							<option th:each="country: ${countries}" th:value="${country.id}" th:if="${country.name} == 'Ethiopia'" selected>[[${country.name}]]</option>
 						</select>
 						<div th:if="${#fields.hasErrors('address.country')}" class="text-danger" th:errors="*{address.country}"></div>
 					</div>

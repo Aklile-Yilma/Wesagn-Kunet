@@ -29,7 +29,7 @@ public class MarriageRegistrationController extends ClientController{
 	@GetMapping("/registration/marriage")
 	public String displayMarriageRegistrationForm(){
 
-		 return "/client/registration/marriage-registration";
+		 return "/client/registration/marriage_registration.html";
 	}
 
 	@PostMapping("/registration/marriage")
@@ -39,7 +39,7 @@ public class MarriageRegistrationController extends ClientController{
 	){
 
 		if(bindingResult.hasErrors())
-			 return "/client/registration/marriage-registration";
+			return "/client/registration/marriage_registration.html";
 
 		marriageRegistrationForm.createCertificateRequest();
 
