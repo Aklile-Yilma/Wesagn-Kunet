@@ -1,6 +1,5 @@
 package com.gov.wesagnkunet;
 
-import com.gov.wesagnkunet.admin.data.models.Admin;
 import com.gov.wesagnkunet.admin.data.repositories.AdminRepository;
 import com.gov.wesagnkunet.client.data.models.Name;
 import com.gov.wesagnkunet.lib.auth.UserManager;
@@ -21,12 +20,14 @@ public class WesagnkunetApplication {
 
 	@Bean
 	public CommandLineRunner commandLineRunner(AdminRepository adminRepository, UserManager userManager){
-		
 		return new CommandLineRunner(){
 
 			@Override
 			public void run(String... args) throws Exception {
-			//	User user = userManager.createUser("admin@gmail.com", "password", Role.ADMIN);
+			
+				
+			
+				//	User user = userManager.createUser("admin@gmail.com", "password", Role.ADMIN);
 			//	adminRepository.save(new Admin(user, new Name("Abreham", "Atlaw", "Alemu")));
 				
 			}

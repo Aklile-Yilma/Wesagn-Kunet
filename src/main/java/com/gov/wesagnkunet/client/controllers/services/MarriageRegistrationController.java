@@ -39,7 +39,7 @@ public class MarriageRegistrationController extends ClientController{
 	){
 
 		if(bindingResult.hasErrors())
-			return "/client/services/marriage_registration.html";
+			return "/client/registration/marriage_registration.html";
 
 		marriageRegistrationForm.createCertificateRequest();
 
