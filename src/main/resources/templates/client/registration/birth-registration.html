@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+       xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{client/base.html}">
+<head>
+    <title layout:fragment="title">Birth Certificate Form Page</title>
+</head>
+
+<body class="bg-light">
+    <main layout:fragment="main" class="container-fluid">
+        <div class="container">
+        <h1>Birth Registration</h1>
+        <p>Short paragraph: Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat omnis consectetur repellat volupt</p>
+        
+               
+        <form class="mt-lg-5 mb-lg-5" action="" method="POST">
+        
+        <div class="border border-dark rounded p-lg-5 mb-lg-5 mt-lg-5">
+            <h2 class="mb-lg-5">Child Information</h2>
+
+            <!--line1-->
+            <div class="form-row">
+
+                <!-- col 1 -->
+                    <div class="col">
+
+                        <!-- row 1 -->
+                        <label for="childName" class="form-label mt-2">Child's Name</label>
+                        <input type="text"
+                                id="childName"
+                            class="form-control "
+                            
+                        > 
+                    <!-- row 2 -->
+                        <label for="dateOfBirth" class="form-label mt-2">Date Of Birth Name</label>
+                        <input type="date"
+                                id="dateOfBirth"
+                            class="form-control "  
+                        > 
+                    <!-- row 3 -->
+                        <label class="form-label mt-2" for="country">Country</label>
+                        <select class="custom-select" data-default="ET" data-flag="true" id="country">
+                            <option th:each="country : ${countries}" th:value="${country.id}"></option>
+                        </select>
+                    <!-- row 4 -->
+                    <label for="wereda" class="form-label mt-2">Wereda</label>
+                        <input type="text"
+                               id="wereda"     
+                        class="form-control">
+
+                    </div>
+                
+
+
+         <!-- col 2 -->
+                <div class="col">
+                    <!--row 1-->
+                    <label for="fatherName" class="form-label mt-2">Father's Name</label>
+                    <input type="text"
+                           id="fatherName"
+                           class="form-control " 
+                    >
+                    <!--row 2-->
+                    <label for="sex" class="form-label mt-2">Sex</label>
+                    <select class="custom-select" aria-label="choose male or female" id="sex">
+                        <option value="" selected>Select</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+
+                    <!-- row 3 -->
+                    <label class="form-label mt-2" for="city">City</label>
+                    <input type="text"
+                           id="city" 
+                           class="form-control" 
+                    >
+                
+                    <!--row 4-->
+                    <label for="nationality" class="form-label mt-2">Nationality</label>
+                    <select class="custom-select" name="nationality" id="nationality">
+                       
+                    </select>
+                    
+                 
+
+                </div>
+
+                <!-- col 3 -->
+
+                <div class="col">
+                    <!-- row 1 -->
+                    <label for="grandFatherName" class="form-label mt-2">Grand Father's Name</label>
+                    <input type="text"
+                           id="grandFatherName"
+                           class="form-control " 
+                    >
+
+
+                    <!-- row 2 -->
+                    <label for="uploadFile" class="form-label mt-2">Photo</label>
+                    <input type="file"
+                           id="uploadFile"
+                           class="form-control " 
+                    >
+                    <!-- row 3 -->
+                    <label for="subCity" class="form-label mt-2">Sub City</label>
+                    <input type="text"
+                           class="form-control "
+                           
+                    >
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="border border-dark rounded p-lg-5 mb-lg-5 mt-lg-5">
+            <h2 class="mb-lg-5">Mother's Information</h2>
+            <div class="form-row">
+                <!-- col 1 -->
+                <div class="col">
+                    <label for="M_Name" class="form-label mt-2" >First's Name</label>
+                    <input type="text"
+                           id="M_Name" 
+                           class="form-control "     
+                    >
+
+                    <label for="M_grandFatherName" class="form-label mt-2">Grand Father's Name</label>
+                    <input type="text"
+                           id="M_grandFatherName"
+                           class="form-control " 
+                          
+                    >
+
+
+                </div>
+     
+            <div class="col">
+                <label for="M_fatherName" class="form-label mt-2">Father's Name</label>
+                <input type="text"
+                       id="M_fatherName"
+                       class="form-control " 
+                >
+
+                <label for="nationality" class="form-label mt-2">Nationality</label>
+                <select class="custom-select" name="nationality" id="nationlaity">
+                </select>
+            </div>
+            
+        </div>
+        </div>
+
+
+        <div class="border border-dark rounded p-lg-5 mb-lg-5 mt-lg-5">
+            <h2 class="mb-lg-5">Father's Information</h2>
+            <div class="form-row">
+                <div class="col">
+                    <label for="F_Name" class="form-label mt-2" >Father's Name</label>
+                    <input type="text"
+                           id="F_Name" 
+                           class="form-control "
+                          
+                    >
+
+                    <label for="F_grandFatherName" class="form-label mt-2">Grand Father's Name</label>
+                    <input type="text"
+                           id="F_grandFatherName"
+                           class="form-control " 
+                           
+                    >
+
+                </div>
+     
+            <div class="col">
+                <label for="F_fatherName" class="form-label mt-2">Last Name</label>
+                <input type="text"
+                       id="F_fatherName"
+                       class="form-control " 
+                      
+                >
+
+                <label for="nationality" class="form-label mt-2">Nationality</label>
+                <select class="custom-select" name="nationality" id="nationality">
+                </select>
+            </div>
+
+        </div>
+        </div>
+        <input style="margin-left:75%" class="btn btn-primary form-control form-control-lg mb-lg-4 w-25" type="submit" value="Submit">
+    </form>
+</div>
+</main>
+    
+  
+    <script th:src="@{/javascript/bootstrap.min.js}"></script>
+</body>
+
+</html>
