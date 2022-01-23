@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+       xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{client/base.html}">
+<head>
+    <title layout:fragment="title">Birth Certificate Form Page | WESAGN KUNET</title>
+</head>
+
+<body>
+    <main layout:fragment="main" class="container-fluid col-11">
+        <h1>Birth Registration</h1>
+        <p>Short paragraph: Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat omnis consectetur repellat volupt</p>
+        
+               
+        <form class="local-mb-7  mt-5" action="" method="POST" enctype="multipart/form-data" th:object="${birthRegistrationForm}">
+            <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+        
+        <div class="my-5" th:with="section='child'" layout:insert="~{client/registration/components/form_accordion.html}">
+             <div layout:fragment="accordionHeading">Child Information</div>
+            <div layout:fragment="accordionBody" th:with="includeHouseNumber=false">
+
+                <!--line1-->
+            <div class="d-block w-100 d-md-flex">
+
+               
+            <div class="form-group row  w-75  m-auto">
+                <!-- col 1 -->
+                    <div class="col">
+                        <!-- row 1 -->
+                        <label for="childName" class="form-label mt-2">Child's Name</label>
+                        <input type="text"
+                                id="childName"
+                            class="form-control "
+                            
+                        > 
+                    <!-- row 2 -->
+                        <label for="dateOfBirth" class="form-label mt-2">Date Of Birth Name</label>
+                        <input type="date"
+                                id="dateOfBirth"
+                            class="form-control "  
+                        > 
+                    <!-- row 3 -->
+                        <label class="form-label mt-2" for="country">Country</label>
+                        <select class="custom-select" data-default="ET" data-flag="true" id="country">
+                            <option th:each="country : ${countries}" th:value="${country.id}"></option>
+                        </select>
+                    <!-- row 4 -->
+
+                    <label for="wereda" class="form-label mt-2">Wereda</label>
+                        <input type="text"
+                               id="wereda"     
+                        class="form-control">
+
+                    </div>
+            </div> 
+
+            
+
+
+         <!-- col 2 -->
+                <div class="form-group row m-auto w-75">
+
+               
+                <div class="col">
+                    <!--row 1-->
+                    <label for="fatherName" class="form-label mt-2">Father's Name</label>
+                    <input type="text"
+                           id="fatherName"
+                           class="form-control " 
+                    >
+                    <!--row 2-->
+                    <label for="sex" class="form-label mt-2">Sex</label>
+                    <select class="custom-select" aria-label="choose male or female" id="sex">
+                        <option value="" selected>Select</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>e
+
+                    <!-- row 3 -->
+                    <label class="form-label mt-2" for="city">City</label>
+                    <input type="text"
+                           id="city" 
+                           class="form-control" 
+                    >
+                
+                    <!--row 4-->
+                    <label for="nationality" class="form-label mt-2">Nationality</label>
+                    <select class="custom-select" name="nationality" id="nationality">
+                       
+                    </select>
+                    
+                </div>
+            </div>
+            
+                <!-- col 3 -->
+
+
+                <div class="form-group row m-auto  w-75">
+
+                
+                <div class="col">
+                    <!-- row 1 -->
+                    <label for="grandFatherName" class="form-label mt-2">Grand Father's Name</label>
+                    <input type="text"
+                           id="grandFatherName"
+                           class="form-control " 
+                    >
+
+
+                    <!-- row 2 -->
+                    <label for="uploadFile" class="form-label mt-2">Photo</label>
+                    <input type="file"
+                           id="uploadFile"
+                           class="form-control " 
+                    >
+                    <!-- row 3 -->
+                    <label for="subCity" class="form-label mt-2">Sub City</label>
+                    <input type="text"
+                           class="form-control "
+                           
+                    >
+                    <div class="mt-auto">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+        <div class="my-5" th:with="section='mother'" layout:insert="~{client/registration/components/form_accordion.html}"> 
+            <div layout:fragment="accordionHeading">Mother's Information</div> 
+        
+            <div layout:fragment="accordionBody">
+        
+
+            <div class=" form-group row  w-100 m-auto d-block d-md-flex">
+                <!-- col 1 -->
+                <div class="col w-75 m-auto">
+                    <label for="M_Name" class="form-label mt-2" >First's Name</label>
+                    <input type="text"
+                           id="M_Name" 
+                           class="form-control "     
+                    >
+
+                    <label for="M_grandFatherName" class="form-label mt-2">Grand Father's Name</label>
+                    <input type="text"
+                           id="M_grandFatherName"
+                           class="form-control " 
+                          
+                    >
+
+
+                </div>
+     
+            <div class="col w-75 m-auto">
+                <label for="M_fatherName" class="form-label mt-2">Father's Name</label>
+                <input type="text"
+                       id="M_fatherName"
+                       class="form-control " 
+                >
+
+                <label for="nationality" class="form-label mt-2">Nationality</label>
+                <select class="custom-select" name="nationality" id="nationlaity">
+                </select>
+            </div>
+            
+       
+    </div>
+        
+    </div>
+</div>
+
+
+
+
+<div class="my-5" th:with="section='mother'" layout:insert="~{client/registration/components/form_accordion.html}"> 
+    <div layout:fragment="accordionHeading">Father's Information</div> 
+
+    <div layout:fragment="accordionBody">
+
+
+    <div class=" form-group row  w-100 m-auto d-block d-md-flex">
+        <!-- col 1 -->
+        <div class="col w-75 m-auto">
+            <label for="M_Name" class="form-label mt-2" >First's Name</label>
+            <input type="text"
+                   id="M_Name" 
+                   class="form-control "     
+            >
+
+            <label for="M_grandFatherName" class="form-label mt-2">Grand Father's Name</label>
+            <input type="text"
+                   id="M_grandFatherName"
+                   class="form-control " 
+                  
+            >
+
+
+        </div>
+
+    <div class="col w-75 m-auto">
+        <label for="M_fatherName" class="form-label mt-2">Father's Name</label>
+        <input type="text"
+               id="M_fatherName"
+               class="form-control " 
+        >
+
+        <label for="nationality" class="form-label mt-2">Nationality</label>
+        <select class="custom-select" name="nationality" id="nationlaity">
+        </select>
+    </div>
+    
+
+</div>
+
+</div>
+</div>
+        <input style="margin-left:75%" class="btn btn-primary form-control form-control-lg mb-lg-4 w-25" type="submit" value="Submit">
+    </form>
+
+</main>
+    
+  
+    <script th:src="@{/javascript/bootstrap.min.js}"></script>
+</body>
+
+</html>

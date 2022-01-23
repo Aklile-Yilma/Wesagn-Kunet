@@ -58,7 +58,14 @@ public class BirthCertificate implements Certificate {
 	})
 	private ParentInformation fatherInformation;
 
+	public BirthCertificate(CertificateDetails certificateDetailsIn, ChildInformation childIn){
+		this.certificateDetails =certificateDetailsIn;
+		this.childInformation= childIn;
+	}
+
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor
 	@Embeddable
 	public static class ChildInformation{
 
@@ -80,6 +87,8 @@ public class BirthCertificate implements Certificate {
 	}
 
 	@Data
+	@AllArgsConstructor
+	@NoArgsConstructor
 	@Embeddable
 	public static class ParentInformation{
 
