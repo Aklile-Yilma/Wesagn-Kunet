@@ -88,10 +88,10 @@ public class MarriageRegistrationForm {
 			);
 		}
 
-		@Override
-		public String toString(){
-			return this.nationality;
-		}
+		// @Override
+		// public String toString(){
+		// 	return this.nationality;
+		// }
 	}
 
 

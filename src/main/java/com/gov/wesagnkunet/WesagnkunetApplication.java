@@ -36,13 +36,13 @@ public class WesagnkunetApplication {
 				//	User user = userManager.createUser("admin@gmail.com", "password", Role.ADMIN);
 				//	adminRepository.save(new Admin(user, new Name("Abreham", "Atlaw", "Alemu")));
 
-				List<String> countries=Arrays.asList(
+				// List<String> countries=Arrays.asList(
 
-				);
+				// );
 
-				countries.forEach(country -> {
-					countryRepository.save(new Country(country));
-				});
+				// countries.forEach(country -> {
+				// 	countryRepository.save(new Country(country));
+				// });
 
 				// List<String> nationalities = Arrays.asList(
 
