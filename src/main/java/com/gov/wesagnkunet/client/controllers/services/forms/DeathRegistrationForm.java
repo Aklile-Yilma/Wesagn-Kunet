@@ -45,7 +45,7 @@ public class DeathRegistrationForm {
     private Title title;
 
 
-    public DeathRegistrationForm(Client client, FileStorageService storageService,
+    public DeathRegistrationForm(Client client, FileStorageService storageService, 
             DeathCertificateRequestRepository deathCertificateRequestRepository) {
         this.client = client;
         this.storageService = storageService;

@@ -12,6 +12,7 @@ import com.gov.wesagnkunet.lib.media.services.FileStorageService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,10 +29,14 @@ public class DeathRegistrationController extends ClientController {
     
     private DeathCertificateRepository deathRepository;
 
-    private DeathRegistrationForm deathRegistrationForm;
+     
 
-    @GetMapping("/registration/death")
-    public String dislayDeathForm() {
+    @GetMapping("/death")
+    public String dislayDeathForm(ModelMap map) {
+
+        DeathRegistrationForm deathRegistrationForm = new DeathRegistrationForm();
+
+        map.addAttribute("deathRegistrationForm", deathRegistrationForm);
         return "/client/registration/death-registration";
     }
 
