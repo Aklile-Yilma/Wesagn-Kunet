@@ -24,7 +24,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 public class WesagnKunetAuthenticationSuccessHandler implements AuthenticationSuccessHandler{
 
 	private Map<String, String> redirectionMap = new HashMap<String, String>(){{
-		put("ROLE_"+Role.ADMIN.name(), "/admin/dashboard");
+		put("ROLE_"+Role.ADMIN.name(), "/admin/dashboard/requests/birth");
 		put("ROLE_"+Role.CLIENT.name(), "/");
 	}};
 
