@@ -19,6 +19,8 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+
+
 public class WesagnKunetAuthenticationSuccessHandler implements AuthenticationSuccessHandler{
 
 	private Map<String, String> redirectionMap = new HashMap<String, String>(){{

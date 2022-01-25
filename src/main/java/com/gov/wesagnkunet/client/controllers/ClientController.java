@@ -6,8 +6,10 @@ import java.util.List;
 
 import com.gov.wesagnkunet.client.data.models.Client;
 import com.gov.wesagnkunet.client.data.models.Address.Country;
+import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.data.repositories.ClientRepository;
 import com.gov.wesagnkunet.client.data.repositories.CountryRepository;
+import com.gov.wesagnkunet.client.data.repositories.NationalityRepository;
 import com.gov.wesagnkunet.lib.auth.data.repositories.UserRepository;
 import com.gov.wesagnkunet.lib.webcontent.data.repositories.TabRepository;
 
@@ -33,6 +35,9 @@ public class ClientController {
 	@Autowired
 	private CountryRepository countryRepository;
 
+	@Autowired
+	private NationalityRepository nationalityRepository;
+
 	@ModelAttribute("client")
 	public Client getClient(Principal principal){
 		if(principal == null)
@@ -54,8 +59,13 @@ public class ClientController {
 	}
 
 	@ModelAttribute(name = "countries")
-	private Iterable<Country> countries(){
+	private Iterable<Country> countries() {
 		return countryRepository.findAll();
+	}
+	
+	@ModelAttribute(name = "nationalities")
+	private Iterable<Nationality> nationalities() {
+		return nationalityRepository.findAll();
 	}
 
 }

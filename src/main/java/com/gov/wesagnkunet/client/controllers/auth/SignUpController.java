@@ -9,6 +9,7 @@ import com.gov.wesagnkunet.client.controllers.ClientController;
 import com.gov.wesagnkunet.client.controllers.auth.forms.SignUpForm;
 import com.gov.wesagnkunet.client.data.models.Client.BloodType;
 import com.gov.wesagnkunet.client.data.models.Client.Sex;
+import com.gov.wesagnkunet.client.data.models.DeathCertificate.Title;
 import com.gov.wesagnkunet.client.data.repositories.ClientRepository;
 import com.gov.wesagnkunet.lib.auth.UserManager;
 import com.gov.wesagnkunet.lib.auth.exceptions.UserExistsException;
@@ -70,8 +71,13 @@ public class SignUpController extends ClientController{
 	}
 
 	@ModelAttribute("sexes")
-	private List<Sex> sexes(){
+	private List<Sex> sexes() {
 		return Arrays.asList(Sex.values());
+	}
+
+	@ModelAttribute("titles")
+	private List<Title> titles() {
+		return Arrays.asList(Title.values());
 	}
 
 

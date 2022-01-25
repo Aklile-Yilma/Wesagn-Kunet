@@ -3,6 +3,7 @@ package com.gov.wesagnkunet.client.controllers.services.forms.components;
 
 import com.gov.wesagnkunet.client.data.models.Address;
 import com.gov.wesagnkunet.client.data.models.Address.Country;
+import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 
 import lombok.Data;
 
@@ -10,6 +11,7 @@ import lombok.Data;
 public class AddressForm {
 	
 	private Country country;
+	private Nationality nationality;
 	
 	private String city;
 	
@@ -21,7 +23,8 @@ public class AddressForm {
 	
 	public Address toAddress(){
 		return new Address(
-			country,
+				country,
+			nationality,
 			city,
 			subCity,
 			wereda,
