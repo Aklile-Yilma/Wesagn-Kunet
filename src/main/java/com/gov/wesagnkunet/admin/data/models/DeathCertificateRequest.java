@@ -53,7 +53,7 @@ public class DeathCertificateRequest implements CertificateRequest {
     //     return null;
     // }
     public DeathCertificateRequest(
-            CertificateRequestDetails certificateRequestDetails2,
+           CertificateRequestDetails certificateRequestDetails2,
            Name name,
             Address address,
             Date dateOfBirth,
@@ -61,7 +61,7 @@ public class DeathCertificateRequest implements CertificateRequest {
             Title title
             
     ) {
-        this.certificateRequestDetails = certificateRequestDetails;
+        this.certificateRequestDetails = certificateRequestDetails2;
         this.address =address;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
