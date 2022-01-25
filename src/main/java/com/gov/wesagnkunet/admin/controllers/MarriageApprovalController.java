@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import com.gov.wesagnkunet.admin.controllers.forms.MarriageApprovalForm;
 import com.gov.wesagnkunet.admin.data.repositories.MarriageCertificateRequestRepository;
+import com.gov.wesagnkunet.client.data.models.CertificateDetails;
 import com.gov.wesagnkunet.client.data.repositories.CertificateDetailsRepository;
 import com.gov.wesagnkunet.client.data.repositories.MarriageCertificateRepository;
 import com.gov.wesagnkunet.lib.core.exceptions.InternalServerError;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-public class RequestController extends AdminController{
+public class MarriageApprovalController extends AdminController {
 
 	@Autowired
 	private MarriageCertificateRequestRepository marriageCertificateRequestRepository;
@@ -31,8 +32,7 @@ public class RequestController extends AdminController{
 	@Autowired
 	private CertificateDetailsRepository certificateDetailsRepository;
 
-	
-	@GetMapping("/admin/dashboard/request")
+	@GetMapping("/admin/dashboard/requests/marriage")
 	public String displayMarriageForm(Principal principal, ModelMap modelMap){
 
 		modelMap.addAttribute("marriageRequests", marriageCertificateRequestRepository.findByCertificateRequestDetailsApproved(false));
@@ -40,7 +40,7 @@ public class RequestController extends AdminController{
 		return "/admin/dashboard/marriage.html";
 	}
 
-	@PostMapping("/admin/dashboard/request/marriage")
+	@PostMapping("/admin/dashboard/requests/marriage")
 	public String handleApproval(
 		@Valid MarriageApprovalForm marriageApprovalForm,
 		BindingResult bindingResult
@@ -51,12 +51,12 @@ public class RequestController extends AdminController{
 		
 		marriageApprovalForm.handle();
 
-		return "redirect:/admin/dashboard/request/";
+		return "redirect:/admin/dashboard/requests/marriage";
 	}
 
 	@ModelAttribute("marriageApprovalForm")
 	public MarriageApprovalForm marriageApprovalForm(){
 		return new MarriageApprovalForm(marriageCertificateRepository, certificateDetailsRepository, marriageCertificateRequestRepository);
 	}
-	
+
 }

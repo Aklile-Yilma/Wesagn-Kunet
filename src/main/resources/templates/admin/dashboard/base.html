@@ -12,10 +12,10 @@
 		<link rel="stylesheet" th:href="@{/static/lib/libs/fontawesome/css/all.css}">
 		<link rel="stylesheet" th:href="@{/static/lib/libs/local/local.css}">
 	</head>
-	<body class="container-fluid bg-light p-5">
-		<header class="d-flex mb-5">
+	<body class="container-fluid bg-danger text-light vh-100">
+		<header class="d-flex my-3">
 			<div class="ml-auto position-relative">
-				<button class="dropdown-toggle btn btn-outline-primary px-4 py-2 rounded rounded-pill" role="button" data-bs-toggle="dropdown"><i class="fa fa-user"></i><span class="ml-3" th:text="${admin.fullName}"></span></button>
+				<button class="dropdown-toggle btn btn-outline-light px-4 py-2 rounded rounded-pill" role="button" data-bs-toggle="dropdown"><i class="fa fa-user"></i><span class="ml-3" th:text="${admin.fullName}"></span></button>
 				<ul class="dropdown-menu">
 					<li class="">
 						<form action="/logout" method="post">
@@ -26,9 +26,31 @@
 				</ul>
 			</div>
 		</header>
-		<main class="w-100" layout:fragment="main">
+		<div class="row h-100 p-4">
+			<aside class="col-2">
+				<ul class="mt-5 nav flex-column">
+					<li th:each="tab: ${sideTabs}" class="nav-item my-2">
+						<a th:href="${tab.url}" th:if="${tab.text != currentTab}" class="nav-link text-white w-100 px-3 py-3 d-flex">
+							<i th:class="${tab.icon}+' local-fs-4'" aria-hidden="true"></i>
+							<span class="my-auto ml-4">[[${tab.text}]]</span>
+						</a>
+						<a th:href="${tab.url}" th:if="${tab.text == currentTab}" class="nav-link text-white w-100 px-3 py-3 d-flex bg-light shadow rounded-pill px-4">
+							<i th:class="${tab.icon}+' local-fs-4 text-dark'" aria-hidden="true"></i>
+							<span class="my-auto ml-4 text-dark">[[${tab.text}]]</span>
+						</a>
+					</li>
+					
+				</ul>
+			</aside>
 
-		</main>
+			<div class="shadow-lg shadow-light col-10 bg-light text-dark rounded local-br-3 h-100 p-5">
+				<main class="w-100 h-100" layout:fragment="main" >
+					
+				</main>
+			</div>
+			
+		</div>
+		
 		
 		<script src="/static/lib/libs/bootstrap/bootstrap.bundle.min.js"></script>
 	</body>
