@@ -2,8 +2,10 @@ package com.gov.wesagnkunet.client.controllers.services.forms;
 
 
 
-import java.util.Date;
+import java.sql.Date;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Transient;
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
@@ -42,6 +44,8 @@ public class DeathRegistrationForm {
     private Date dateOfDeath;
 
     private Name name;
+
+	@Enumerated(EnumType.STRING)
     private Title title;
 
 
