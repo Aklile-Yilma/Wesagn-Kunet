@@ -88,10 +88,13 @@ public class MarriageRegistrationForm {
 			);
 		}
 
-		@Override
-		public String toString(){
-			return this.nationality;
-		}
+<<<<<<< HEAD
+=======
+		// @Override
+		// public String toString(){
+		// 	return this.nationality;
+		// }
+>>>>>>> 415c3dfb19dd246e1991cd0b713cdd4a74f4d32c
 	}
 
 

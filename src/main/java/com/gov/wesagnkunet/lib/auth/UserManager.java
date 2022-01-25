@@ -5,13 +5,22 @@ import com.gov.wesagnkunet.lib.auth.data.models.User.Role;
 import com.gov.wesagnkunet.lib.auth.data.repositories.UserRepository;
 import com.gov.wesagnkunet.lib.auth.exceptions.UserExistsException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 public class UserManager {
 
+	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
 	private PasswordEncoder encoder;
+
+	public UserManager(){
+		
+	}
 
 	public UserManager(UserRepository repository, PasswordEncoder encoder){
 		this.repository = repository;

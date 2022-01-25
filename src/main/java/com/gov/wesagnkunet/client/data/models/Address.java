@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.AssertTrue;
 
@@ -29,6 +30,9 @@ public class Address {
 	
 	@ManyToOne
 	private Country country;
+
+	@Transient
+	private Nationality nationality;
 	
 	private String city;
 	
@@ -37,6 +41,7 @@ public class Address {
 	private Integer wereda;
 	
 	private Integer houseNumber;
+
 
 	
 	@AllArgsConstructor
@@ -74,11 +79,16 @@ public class Address {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Long id;
+
 		@Column(unique = true)
 		private String name;
 		
 		public Nationality(String name) {
 			this.name = name;
+		}
+		@Override
+		public String toString() {
+			return name;
 		}
 	}
 

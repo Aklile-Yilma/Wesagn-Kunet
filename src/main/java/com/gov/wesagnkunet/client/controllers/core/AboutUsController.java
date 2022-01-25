@@ -11,7 +11,7 @@ public class AboutUsController extends ClientController {
 
     @GetMapping("/about")
     public String displayAboutUs() {
-        return "/client/core/aboutUs";
+        return "/client/core/about.html";
     }
     
     
