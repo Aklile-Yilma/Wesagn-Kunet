@@ -4,6 +4,7 @@ package com.gov.wesagnkunet.client.controllers;
 import java.security.Principal;
 import java.util.List;
 
+import com.gov.wesagnkunet.admin.data.repositories.AdminRepository;
 import com.gov.wesagnkunet.client.data.models.Client;
 import com.gov.wesagnkunet.client.data.models.Address.Country;
 import com.gov.wesagnkunet.client.data.models.Address.Nationality;
@@ -31,6 +32,9 @@ public class ClientController extends WesagnKunetController{
 	private ClientRepository clientRepository;
 
 	@Autowired
+	private AdminRepository adminRepository;
+
+	@Autowired
 	private TabRepository tabRepository;
 
 	@Autowired
@@ -48,6 +52,16 @@ public class ClientController extends WesagnKunetController{
 			userRepository.findByUsername(principal.getName())
 		);
 
+	}
+
+	@ModelAttribute("isAdmin")
+	public Boolean isAdmin(Principal principal){
+		if(principal == null)
+			return false;
+		
+		return adminRepository.findByClientUser(
+			userRepository.findByUsername(principal.getName())
+		) != null;
 	}
 
 	@ModelAttribute

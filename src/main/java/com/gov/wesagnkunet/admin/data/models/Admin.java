@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.gov.wesagnkunet.client.data.models.Client;
 import com.gov.wesagnkunet.client.data.models.Name;
 import com.gov.wesagnkunet.lib.auth.data.models.User;
 
@@ -30,15 +31,10 @@ public class Admin {
 
 	@ManyToOne
 	@JoinColumn(unique = true, nullable = true)
-	private User user;
+	private Client client;
 
-	@Embedded
-	private Name fullName;
-
-
-	public Admin(User user, Name fullName){
-		this.user = user;
-		this.fullName = fullName;
+	public Admin(Client client){
+		this.client = client;
 	}
 
 }
