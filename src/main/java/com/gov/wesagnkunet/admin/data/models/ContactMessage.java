@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "admin_contactmessage")
@@ -36,7 +38,6 @@ public class ContactMessage {
 	
 	
 	public ContactMessage(
-		Long id,
 		String firstName,
 		String lastName,
 		String phoneNumber,

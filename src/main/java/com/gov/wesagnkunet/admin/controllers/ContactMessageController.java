@@ -26,19 +26,6 @@ public class ContactMessageController extends AdminDashboardController{
 			"messages", contactMessageRepository.findAllByOrderByDateDesc()
 		);
 
-		// modelMap.addAttribute(
-		// 	"messages", Arrays.asList(
-		// 		new ContactMessage(
-		// 			1l, 
-		// 			"Abreham",
-		// 			"Atlaw",
-		// 			"+251962156364",
-		// 			"email@example.com",
-		// 			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus rerum at perspiciatis optio dignissimos quaerat assumenda aliquam odio facilis molestiae harum ea iusto explicabo, magnam eos possimus natus fuga. Exercitationem."
-		// 		)
-		// 	)
-		// );
-
 		return "admin/dashboard/contact.html";
 
 	}

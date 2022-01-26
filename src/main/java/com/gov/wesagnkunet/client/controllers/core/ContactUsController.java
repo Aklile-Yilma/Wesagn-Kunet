@@ -4,10 +4,11 @@ import javax.validation.Valid;
 
 import java.security.Principal;
 
-import com.gov.wesagnkunet.client.controllers.services.forms.ContactUsForm;
+import com.gov.wesagnkunet.admin.data.repositories.ContactMessageRepository;
 import com.gov.wesagnkunet.client.controllers.ClientController;
+import com.gov.wesagnkunet.client.controllers.core.forms.ContactUsForm;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import com.gov.wesagnkunet.client.data.repositories.ContactUsRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -21,9 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ContactUsController  extends ClientController{
 
     @Autowired
-    private ContactUsRepository contactUsRepository;
-
-
+	private ContactMessageRepository contactMessageRepository;
 
 
     @GetMapping("/contact")
@@ -38,14 +37,13 @@ public class ContactUsController  extends ClientController{
         if(bindingResult.hasErrors()){
             return "/client/core/contactUs";
         }
-        contactUsRepository.save(contactUsForm);
+        contactUsForm.createContactMessage(contactMessageRepository);
         return "redirect:/";
-        //TODO: process POST request
     }
     
-    // @ModelAttribute("contactUsForm")
-    // public ContactUsForm contactUsForm(Principal principal){
-    //     return new ContactUsForm;
-    // }
+    @ModelAttribute("contactUsForm")
+    public ContactUsForm contactUsForm(Principal principal){
+         return new ContactUsForm();
+    }
     
 }
