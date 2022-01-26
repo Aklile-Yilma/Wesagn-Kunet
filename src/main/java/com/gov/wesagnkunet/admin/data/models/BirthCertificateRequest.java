@@ -76,17 +76,27 @@ public class BirthCertificateRequest {
          ParentInformation fatherInformation
      ){
          this.certificateRequestDetails=certificateRequestDetailsIn;
+<<<<<<< HEAD
          this.child=childIn;
 		 this.fatherInformation = fatherInformation;
 		 this.motherInformation = motherInformation;
+=======
+         this.child = childIn;
+         this.motherInformation = motherInformation;
+         this.fatherInformation = fatherInformation;
+>>>>>>> 4f536ec521014d691026ba0436f8a13c91a1a420
      }
 
      public BirthCertificate toBirthCertificate(CertificateDetailsRepository certificateDetailsRepositoryIn, BirthCertificateRepository birthCertificateRepositoryIn){
          BirthCertificate certificate= new BirthCertificate(
              certificateRequestDetails.toCertificateDetails(certificateDetailsRepositoryIn, Type.BIRTH),
+<<<<<<< HEAD
              child,
 			 motherInformation,
 			 fatherInformation
+=======
+             child, motherInformation, fatherInformation
+>>>>>>> 4f536ec521014d691026ba0436f8a13c91a1a420
          );
          birthCertificateRepositoryIn.save(certificate);
 

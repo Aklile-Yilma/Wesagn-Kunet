@@ -34,7 +34,7 @@ public class DeathRegistrationController extends ClientController {
 
      
 
-    @GetMapping("registration/death")
+    @GetMapping("/registration/death")
     public String dislayDeathForm(ModelMap map) {
 
         DeathRegistrationForm deathRegistrationForm = new DeathRegistrationForm();
