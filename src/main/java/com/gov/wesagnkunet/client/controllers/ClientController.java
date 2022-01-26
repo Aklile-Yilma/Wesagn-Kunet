@@ -10,6 +10,7 @@ import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.data.repositories.ClientRepository;
 import com.gov.wesagnkunet.client.data.repositories.CountryRepository;
 import com.gov.wesagnkunet.client.data.repositories.NationalityRepository;
+import com.gov.wesagnkunet.lib.WesagnKunetController;
 import com.gov.wesagnkunet.lib.auth.data.repositories.UserRepository;
 import com.gov.wesagnkunet.lib.webcontent.data.repositories.TabRepository;
 
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 @Controller
-public class ClientController {
+public class ClientController extends WesagnKunetController{
 
 	@Autowired
 	private UserRepository userRepository;
