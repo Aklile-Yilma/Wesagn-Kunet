@@ -1,26 +1,26 @@
 <div th:remove="tag">
-	<div class="row">
-		<div class="col-6">[[${spouseType}]] First Name</div>
+	<div class="row py-3 border-bottom">
+		<div class="col-6 fw-bold">[[${spouseType}]] First Name</div>
 		<div class="col-6">[[${spouse.fullName.firstName}]]</div>
 	</div>
-	<div class="row">
-		<div class="col-6">[[${spouseType}]] Middle Name</div>
+	<div class="row py-3 border-bottom">
+		<div class="col-6 fw-bold">[[${spouseType}]] Middle Name</div>
 		<div class="col-6">[[${spouse.fullName.middleName}]]</div>
 	</div>
-	<div class="row">
-		<div class="col-6">[[${spouseType}]] Last Name</div>
+	<div class="row py-3 border-bottom">
+		<div class="col-6 fw-bold">[[${spouseType}]] Last Name</div>
 		<div class="col-6">[[${spouse.fullName.lastName}]]</div>
 	</div>
-	<div class="row">
-		<div class="col-6">[[${spouseType}]] Nationality</div>
+	<div class="row py-3 border-bottom">
+		<div class="col-6 fw-bold">[[${spouseType}]] Nationality</div>
 		<div class="col-6">[[${spouse.nationality}]]</div>
 	</div>
-	<div class="row">
-		<div class="col-6">[[${spouseType}]] Date Of Birth</div>
+	<div class="row py-3 border-bottom">
+		<div class="col-6 fw-bold">[[${spouseType}]] Date Of Birth</div>
 		<div class="col-6">[[${spouse.dateOfBirth}]]</div>
 	</div>
-	<div class="row py-3">
-		<div class="col-6">[[${spouseType}]] Photo</div>
+	<div class="row py-3 border-bottom py-3">
+		<div class="col-6 fw-bold">[[${spouseType}]] Photo</div>
 		<div class="col-6">
 			<img th:src="${media.getUrl(spouse.photo)}" class="w-50">
 		</div>

@@ -5,24 +5,24 @@
 		layout:decorate="~{admin/dashboard/base.html}"
 	  >
 	  <head>
-		  <title layout:fragment="title">MARRIAGE REGISTRATION REQUESTS</title>
+		  <title layout:fragment="title">BIRTH REGISTRATION REQUESTS</title>
 	  </head>
-	<body th:with="currentTab='Marriage Certificates'">
+	<body th:with="currentTab='Birth Certificates'">
 		
 		<main layout:fragment="main">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="">
-						<h1 class="local-fs-3 font-weight-bold text-center mb-5">Marriage Requests</h1>
+						<h1 class="local-fs-3 font-weight-bold text-center mb-5">Birth Requests</h1>
 					</div>
 				</div>
 				
 				<div class="my-5">
-					<div class="h-100 w-100 d-flex"  th:if="${marriageRequests.size()}==0">
+					<div class="h-100 w-100 d-flex" th:if="${birthRequests.size()} == 0">
 						<h4 class="text-muted m-auto">There are no new requests.</h4>
 
 					</div>
-					<div class="row h4 fw-bold mb-5" th:if="${marriageRequests.size()}!=0">
+					<div class="row h4 fw-bold mb-5" th:if="${birthRequests.size()}!=0">
 						<div class="col-4">
 							Applier
 						</div>
@@ -33,7 +33,7 @@
 
 						</div>
 					</div>
-					<div class="row border-bottom py-4" th:each="request: ${marriageRequests}">
+					<div class="row border-bottom py-4" th:each="request: ${birthRequests}">
 						<div class="col-4 my-auto">
 							[[${request.certificateRequestDetails.client.fullName}]]
 						</div>
@@ -46,7 +46,7 @@
 							</button>
 							
 							<div class="modal fade text-dark" th:id="${'marriageModal'+request.id}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-								<div class="modal-dialog" role="document">
+								<div class="modal-dialog modal-dialog-scrollable" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
 											<h5 class="modal-title">Details</h5>
@@ -54,23 +54,77 @@
 										</div>
 										<div class="modal-body">
 											<div class="container-fluid">
-												<div th:with="address=${request.marriageAddress}" th:remove="tag" layout:insert="~{admin/dashboard/components/address_view.html}">
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														First Name
+													</div>
+													<div class="col-6">
+														[[${request.child.fullName.firstName}]]
+													</div>
 												</div>
 												<div class="row py-3 border-bottom">
 													<div class="col-6 fw-bold">
-														Marriage Date
+														Middle Name
 													</div>
 													<div class="col-6">
-														[[${request.marriageDate}]]
+														[[${request.child.fullName.middleName}]]
 													</div>
 												</div>
-												<div th:with="spouse=${request.wife}" th:remove="tag">
-													<div th:with="spouseType='Wife'" layout:insert="~{admin/dashboard/components/spouse_view.html}" th:remove="tag"></div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Last Name
+													</div>
+													<div class="col-6">
+														[[${request.child.fullName.lastName}]]
+													</div>
 												</div>
-												<div th:with="spouse=${request.husband}" th:remove="tag">
-													<div th:with="spouseType='Husband'" layout:insert="~{admin/dashboard/components/spouse_view.html}" th:remove="tag"></div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Date of Birth
+													</div>
+													<div class="col-6">
+														[[${request.child.dateOfBirth}]]
+													</div>
 												</div>
-											
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Sex
+													</div>
+													<div class="col-6">
+														[[${request.child.sex}]]
+													</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Photo
+													</div>
+													<div class="col-6">
+														<img th:src="${media.getUrl(request.child.photo)}" class="w-100">
+													</div>
+												</div>
+												
+												<div th:remove="tag" th:with="address=${request.child.birthAddress}" th:insert="~{admin/dashboard/components/address_view.html}">
+												</div>
+												
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Nationality
+													</div>
+													<div class="col-6">
+														[[${request.child.nationality}]]
+													</div>
+												</div>
+												
+												<div th:remove="tag" th:with="parentType='Mother'">
+													<div th:remove="tag" th:with="parent=${request.motherInformation}" th:insert="~{admin/dashboard/components/parent_view.html}">
+													</div>
+												</div>
+
+												<div th:remove="tag" th:with="parentType='Father'">
+													<div th:remove="tag" th:with="parent=${request.fatherInformation}" th:insert="~{admin/dashboard/components/parent_view.html}">
+													</div>
+												</div>
+												
 
 											</div>
 										</div>

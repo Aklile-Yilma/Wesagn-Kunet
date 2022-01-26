@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-public class MarriageApprovalController extends AdminController {
+public class MarriageApprovalController extends AdminDashboardController {
 
 	@Autowired
 	private MarriageCertificateRequestRepository marriageCertificateRequestRepository;
