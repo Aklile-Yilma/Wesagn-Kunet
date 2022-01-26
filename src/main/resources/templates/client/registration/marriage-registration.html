@@ -67,8 +67,11 @@
                         <div class="mt-3 col-4">
                             <label class="form-label mb-1">Nationality</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
-                                <input type="text" class="form-control border-left-0 bg-light" th:field="*{wife.nationality}" placeholder="Nationality" required>
+								<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+                                <select th:field="*{wife.nationality}" id="country" class="form-select form-control bg-transparent" required>
+									<option value="">Select</option>
+									<option th:each="nationality: ${nationalities}" th:value="${nationality.id}">[[${nationality}]]</option>
+								</select>
                             </div>
                             <div th:if="${#fields.hasErrors('wife.nationality')}" class="text-danger" th:errors="*{wife.nationality}"></div>
                         </div>
@@ -119,9 +122,12 @@
                         </div>
                         <div class="mt-3 col-4">
                             <label class="form-label mb-1">Nationality</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
-                                <input type="text" class="form-control border-left-0 bg-light" th:field="*{husband.nationality}" placeholder="Nationality" required>
+							<div class="input-group">
+								<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
+                                <select name="husband.nationality" id="nationality" class="form-select form-control bg-transparent" required>
+									<option value="">Select</option>
+									<option th:each="nationality: ${nationalities}" th:value="${nationality.id}">[[${nationality}]]</option>
+								</select>
                             </div>
                             <div th:if="${#fields.hasErrors('husband.nationality')}" class="text-danger" th:errors="*{husband.nationality}"></div>
                         </div>
