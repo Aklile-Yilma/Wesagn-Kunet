@@ -54,7 +54,7 @@ public class BirthRegistrationController extends ClientController {
 		log.info("Here");
 
         birthRegistrationForm.createCertificateRequest();
-        return "redirect:/?requestSeccessfull";
+        return "redirect:/?requestSuccessfull";
 
     }
 
