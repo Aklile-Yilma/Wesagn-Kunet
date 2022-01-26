@@ -39,7 +39,11 @@ public class BirthRegistrationForm {
 
     private AddressForm birthAddress;
 
+    private String nationality;
+
     private Date birthDate;
+
+    private String photo;
 
     private ChildForm child;
 
@@ -71,6 +75,9 @@ public class BirthRegistrationForm {
     }
 
     
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class ChildForm{
 
         private NameForm fullName;
@@ -92,11 +99,6 @@ public class BirthRegistrationForm {
                 nationality
             );
         }
-
-            @Override
-            public String toString(){
-                return this.nationality;
-            }
         }
 
 
