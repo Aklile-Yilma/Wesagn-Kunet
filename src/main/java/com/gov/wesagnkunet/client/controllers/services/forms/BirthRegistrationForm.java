@@ -42,8 +42,6 @@ public class BirthRegistrationForm {
 
     private AddressForm birthAddress;
 
-    private Date birthDate;
-
     private ChildForm child;
 
     private ParentForm father;
@@ -63,8 +61,8 @@ public class BirthRegistrationForm {
         BirthCertificateRequest request= new BirthCertificateRequest(
             new CertificateRequestDetails(client),
             child.toChild(storageService),
-            father.toParent(storageService),
-            mother.toParent(storageService)
+            mother.toParent(),
+            father.toParent()
         );
 
         birthCertificateRequestRepository.save(request);
@@ -110,7 +108,7 @@ public class BirthRegistrationForm {
         
             private String nationality;
 
-            public ParentInformation toParent(FileStorageService storageService){
+            public ParentInformation toParent(){
                 return new ParentInformation(
                     fullName.toName(),
                     nationality

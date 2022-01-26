@@ -24,9 +24,9 @@ public class AddressForm {
 		return new Address(
 				country,
 			city,
-			houseNumber,
+			subCity,
 			wereda,
-			subCity
+			houseNumber
 		);
 	}
 

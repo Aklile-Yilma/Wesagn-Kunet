@@ -43,11 +43,11 @@
                         <input type="date"
                                 id="dateOfBirth"
                             class="form-control "  
-                            th:field="*{birthDate}"
+                            th:field="*{child.dateOfBirth}"
                             placeholder="Date Of Birth"
                             required
                         > 
-                        <div th:if="${#fields.hasErrors('birthDate')}" class="text-danger" th:errors="*{birthDate}"></div>
+                        <div th:if="${#fields.hasErrors('child.dateOfBirth')}" class="text-danger" th:errors="*{child.dateOfBirth}"></div>
                     <!-- row 3 -->
 
                    
@@ -58,22 +58,21 @@
                         <input type="text"
                                id="wereda"     
                         class="form-control"
-                        th:field="*{birthAddress.wereda}"
+                        th:field="*{child.birthAddress.wereda}"
                         placeholder="wereda"
                         required
                         >
-                        <div th:if="${#fields.hasErrors('birthAddress.wereda')}" class="text-danger" th:errors="*{birthAddress.wereda}"></div>
+                        <div th:if="${#fields.hasErrors('child.birthAddress.wereda')}" class="text-danger" th:errors="*{child.birthAddress.wereda}"></div>
 
                         <label class="form-label mt-2" for="country">Country</label>
-                        <select  name="birthAddress.country" class="custom-select"  id="country" required>
+                        <select  name="child.birthAddress.country" class="custom-select"  id="country" required>
                             <option value="">Select</option>
-                            <div th:remove="tag" th:each="country: ${countries}" th:object="${country}">
-								<option th:value="*{id}" th:text="*{name}" th:if="*{name}!='Ethiopia'"></option>
-								<option th:value="*{id}" th:text="*{name}" th:if="*{name}=='Ethiopia'" selected></option>
+                            <div th:remove="tag" th:each="country: ${countries}">
+								<option th:value="${country.id}" th:text="${country.name}" th:if="${country.name}!='Ethiopia'"></option>
+								<option th:value="${country.id}" th:text="${country.name}" th:if="${country.name}=='Ethiopia'" selected></option>
 							</div>
-							<option th:each="country: ${countries}" th:value="${country.id}" th:if="${country.name} == 'Ethiopia'" selected>[[${country.name}]]</option>
                         </select>
-                        <div th:if="${#fields.hasErrors('birthAddress.country')}" class="text-danger" th:errors="*{birthAddress.country}"></div>
+                        <div th:if="${#fields.hasErrors('child.birthAddress.country')}" class="text-danger" th:errors="*{child.birthAddress.country}"></div>
                     
 
                     </div>
@@ -111,11 +110,11 @@
                     <input type="text"
                            id="city" 
                            class="form-control" 
-                           th:field="*{birthAddress.city}" 
+                           th:field="*{child.birthAddress.city}" 
                            placeholder="City"
                            required
                     >
-                    <div th:if="${#fields.hasErrors('birthAddress.city')}" class="text-danger" th:errors="*{birthAddress.city}"></div>
+                    <div th:if="${#fields.hasErrors('child.birthAddress.city')}" class="text-danger" th:errors="*{child.birthAddress.city}"></div>
                 
                     <!--row 4-->
                     <label for="nationalityC" class="form-label mt-2">Nationality</label>
@@ -144,7 +143,7 @@
                     <input type="text"
                            id="grandFatherName"
                            class="form-control "
-                           th:field="*{father.fullName.lastName}"
+                           th:field="*{child.fullName.lastName}"
                            placeholder="Grand Father's Name"
                            required 
                     >
@@ -160,11 +159,11 @@
                     <label for="subCity" class="form-label mt-2">Sub City</label>
                     <input type="text"
                            class="form-control "
-                           th:field="*{birthAddress.subCity}" 
+                           th:field="*{child.birthAddress.subCity}" 
                            placeholder="Sub City"
                            required        
                     >
-                    <div th:if="${#fields.hasErrors('birthAddress.subCity')}" class="text-danger" th:errors="*{birthAddress.subCity}"></div>
+                    <div th:if="${#fields.hasErrors('child.birthAddress.subCity')}" class="text-danger" th:errors="*{child.birthAddress.subCity}"></div>
                     
                     <div class="mt-auto">
 
@@ -225,7 +224,7 @@
         
 
                 <label for="nationalityM" class="form-label mt-2">Nationality</label>
-                <select  name="parent.nationality" class="custom-select"  id="nationalityM" required>
+                <select  name="mother.nationality" class="custom-select"  id="nationalityM" required>
                     <option value="">Select</option>
                     <div th:remove="tag" th:each="nationality: ${nationalities}" th:object="${nationality}">
                         <option th:value="*{id}" th:text="*{name}" th:if="*{name}!='Ethiopian'"></option>
@@ -292,7 +291,7 @@
 
 
         <label for="nationalityF" class="form-label mt-2">Nationality</label>
-                <select  name="parent.nationality" class="custom-select"  id="nationalityF" required>
+                <select  name="father.nationality" class="custom-select"  id="nationalityF" required>
                     <option value="">Select</option>
                     <div th:remove="tag" th:each="nationality: ${nationalities}" th:object="${nationality}">
                         <option th:value="*{id}" th:text="*{name}" th:if="*{name}!='Ethiopian'"></option>
