@@ -8,6 +8,7 @@ import com.gov.wesagnkunet.client.controllers.ClientController;
 import com.gov.wesagnkunet.client.data.models.Certificate;
 import com.gov.wesagnkunet.client.data.models.Client;
 import com.gov.wesagnkunet.client.data.repositories.BirthCertificateRepository;
+import com.gov.wesagnkunet.client.data.repositories.DeathCertificateRepository;
 import com.gov.wesagnkunet.client.data.repositories.MarriageCertificateRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class MyCertificatesController extends ClientController{
 	@Autowired
 	private BirthCertificateRepository birthCertificateRepository;
 
+	@Autowired
+	private DeathCertificateRepository deathCertificateRepository;
+
 	@GetMapping("/account/my-certificates")
 	public String displayMyCertificates(){
 		return "client/account/my_certificates.html";
@@ -42,6 +46,9 @@ public class MyCertificatesController extends ClientController{
 		);
 		certificates.addAll(
 			birthCertificateRepository.findByCertificateDetailsOwnersContains(client)
+		);
+		certificates.addAll(
+			deathCertificateRepository.findByCertificateDetailsOwnersContains(client)
 		);
 
 		return certificates;
