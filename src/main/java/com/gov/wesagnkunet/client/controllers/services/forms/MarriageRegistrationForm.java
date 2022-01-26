@@ -5,6 +5,8 @@ package com.gov.wesagnkunet.client.controllers.services.forms;
 import java.sql.Date;
 
 import javax.persistence.Transient;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.MarriageCertificateRequest;
@@ -45,6 +47,27 @@ public class MarriageRegistrationForm {
 
 	private SpouseForm husband;
 	
+	@AssertTrue(message = "Invalid Date")
+	public boolean isMarriageDateValid(){
+		if(marriageDate == null)
+			return true;
+		return new Date(System.currentTimeMillis()).after(marriageDate);
+	}
+
+	@AssertTrue(message = "Invalid Date")
+	public boolean isWifeDateOfBirthValid(){
+		if(wife.getDateOfBirth() == null)
+			return true;
+		return new Date(System.currentTimeMillis()).after(wife.getDateOfBirth());
+	}
+
+	@AssertTrue(message= "Invalid Date")
+	public boolean isHusbandDateOfBirthValid(){
+		if(husband.getDateOfBirth() == null)
+			return true;
+		return new Date(System.currentTimeMillis()).after(wife.getDateOfBirth());
+	}
+
 	public MarriageRegistrationForm(Client client, FileStorageService storageService, MarriageCertificateRequestRepository marriageCertificateRequestRepository){
 		this.client = client;
 		this.storageService = storageService;
@@ -74,11 +97,15 @@ public class MarriageRegistrationForm {
 
 		private NameForm fullName;
 
+		@NotNull
 		private Nationality nationality;
 
 		private Date dateOfBirth;
 
+		@NotNull
 		private MultipartFile photo;
+
+		
 
 		public Spouse toSpouse(FileStorageService storageService){
 			return new Spouse(
