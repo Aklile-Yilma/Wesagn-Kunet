@@ -41,11 +41,18 @@
 									<a href="/auth/sign-up" class="btn btn-primary px-4 mx-3 mt-lg-0 mt-2">SIGNUP</a>
 								</div>
 								<div class="" th:if="${client}!=null">
-									<div class="bg-primary text-light px-4 py-2 rounded position-relative">
-										<span href="#" class="dropdown-toggle" role="button" data-bs-toggle="dropdown"><i class="fa fa-user"></i><span class="ml-3" th:text="${client.fullName}"></span></span>
+									<div class="px-4 py-2 rounded position-relative">
+										<span href="#" class="btn btn-outline-primary d-flex" role="button" data-bs-toggle="dropdown">
+											<div style="width:3em; height:3em;" class="rounded-circle rounded overflow-hidden">
+												<img th:src="${media.getUrl(client.photo)}" class="w-100">
+											</div>
+											<div class="my-auto mx-3" th:text="${client.fullName}"></div>
+											<div class="my-auto">
+												<i class="fa fa-chevron-down" aria-hidden="true"></i>
+											</div>
+										</span>
 										<ul class="dropdown-menu">
-											<li class=""><a href="/account/manage" class="dropdown-item">Manage Account</a></li>
-											<li class=""><a href="/account/certificates" class="dropdown-item">My Certificates</a></li>
+											<li class=""><a href="/account/my-certificates" class="dropdown-item">My Certificates</a></li>
 											<li class="">
 												<form action="/logout" method="post">
 													<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
@@ -104,7 +111,55 @@
 				Copyright &copy; 2021 | Wesagn Kunet
 			</div>
 		</footer>
-		<script th:src="@{/static/lib/libs/bootstrap/bootstrap.bundle.min.js}"></script>
+
+		<div th:if="${requestSuccess}" class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Request Submitted Successfully</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						Your certificate request is being processed
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<a role="button" href="/account/my-certificates" class="btn btn-primary">My Certificates</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div th:if="${signUpSuccess}" class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Account Created Successfully</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						You're account has been successfully created.
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<a role="button" href="/auth/login" class="btn btn-primary">Login</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<script  th:src="@{/static/lib/libs/bootstrap/bootstrap.bundle.min.js}"></script>
+	
+	
+	
+		<script  th:if="${requestSuccess != null || signUpSuccess != null} ">
+			function showSuccessModal(){
+				let modal = new bootstrap.Modal(document.getElementById('successModal'), {})
+				modal.show()
+			}
+			showSuccessModal()
+		</script>
 	</body>
 
 </html>

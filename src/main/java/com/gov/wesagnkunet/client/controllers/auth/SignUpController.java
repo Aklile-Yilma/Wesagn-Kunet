@@ -56,7 +56,7 @@ public class SignUpController extends ClientController{
 		catch(UserExistsException ex){
 			throw new InternalServerError();
 		}
-		return "redirect:/";
+		return "redirect:/?signUpSuccessfull";
 
 	}
 

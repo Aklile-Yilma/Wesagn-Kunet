@@ -2,7 +2,7 @@
 	<label for="country" class="form-label mb-1">Country</label>
 	<select th:name="${fieldName} + '.country'" id="country" class="form-select form-control bg-transparent" required>
 		<option value="">Select</option>
-		<option th:each="country: ${countries}" th:value="${country.id}">[[${country.name}]]</option>
+		<option th:each="country: ${countries}" th:value="${country.id}">[[${country}]]</option>
 	</select>
 	<div th:if="${#fields.hasErrors(fieldName + '.country')}" class="text-danger" th:errors="*{address.country}"></div>
 </div>

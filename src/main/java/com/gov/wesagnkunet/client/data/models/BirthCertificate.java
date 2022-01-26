@@ -17,6 +17,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.gov.wesagnkunet.client.data.models.Address.Nationality;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -80,8 +82,7 @@ public class BirthCertificate implements Certificate {
 		private String photo;
 
 		@Embedded
-		private Address birthAddress;
-
+		private Address birthAddress;		
 		private String nationality;
 
 	}
@@ -94,7 +95,6 @@ public class BirthCertificate implements Certificate {
 
 		@Embedded
 		private Name fullName;
-
 		private String nationality;
 
 	}

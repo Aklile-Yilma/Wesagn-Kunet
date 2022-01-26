@@ -51,6 +51,7 @@
 							<input type="date" class="form-control border-left-0 bg-light" th:field="*{dateOfBirth}" placeholder="Date of Birth" required>
 						</div>
 						<div th:if="${#fields.hasErrors('dateOfBirth')}" class="text-danger" th:errors="*{dateOfBirth}"></div>
+						<div th:if="${#fields.hasErrors('birthDateValid')}" class="text-danger" th:errors="*{birthDateValid}"></div>
 					</div>
 
 					<div class="mt-3">
@@ -165,7 +166,7 @@
 
 
 					<div class="local-mt-6 d-flex">
-						<input type="submit" value="SIGN IN" class="mx-auto rounded-pill btn btn-primary py-2 px-5">
+						<input type="submit" value="SIGN UP" class="mx-auto rounded-pill btn btn-primary py-2 px-5">
 					</div>
 					
 				</form>

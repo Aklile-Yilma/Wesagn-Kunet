@@ -1,32 +1,72 @@
 package com.gov.wesagnkunet.client.controllers.core;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import java.sql.Date;
 
 import com.gov.wesagnkunet.client.controllers.ClientController;
-import com.gov.wesagnkunet.client.data.models.Address.Country;
-import com.gov.wesagnkunet.client.data.repositories.CountryRepository;
-import com.gov.wesagnkunet.lib.webcontent.data.models.Tab;
-import com.gov.wesagnkunet.lib.webcontent.data.repositories.TabRepository;
+import com.gov.wesagnkunet.client.data.models.BirthCertificate;
+import com.gov.wesagnkunet.client.data.models.DeathCertificate;
+import com.gov.wesagnkunet.client.data.repositories.BirthCertificateRepository;
+import com.gov.wesagnkunet.client.data.repositories.DeathCertificateRepository;
+import com.gov.wesagnkunet.client.data.repositories.MarriageCertificateRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class HomeController extends ClientController{
 
 	@Autowired
-	private TabRepository tabRepository;
-	
+	private BirthCertificateRepository birthCertificateRepository;
+
 	@Autowired
-	private CountryRepository countryRepository;
+	private MarriageCertificateRepository marriageCertificateRepository;
+
+	@Autowired
+	private DeathCertificateRepository deathCertificateRepository;
+
 
 	@GetMapping("/")
-	public String displayHome(){
-	
+	public String displayHome(
+		ModelMap modelMap,
+		@RequestParam(name = "requestSuccessfull", required = false) Object requestSuccessfull,
+		@RequestParam(name = "signUpSuccessfull", required = false) Object signUpSuccessfull
+	){
+		
+		if(requestSuccessfull != null)
+			modelMap.addAttribute(
+				"requestSuccess", true
+			);
+		
+		if(signUpSuccessfull != null)
+			modelMap.addAttribute(
+				"signUpSuccess", true
+			);
+
+		Date targetDate = getTargetDate();
+
+		modelMap.addAttribute("birthStats", birthCertificateRepository.countByCertificateDetailsIssueDateGreaterThan(targetDate));
+		modelMap.addAttribute("marriageStats", marriageCertificateRepository.countByCertificateDetailsIssueDateGreaterThan(targetDate));
+		modelMap.addAttribute("deathStats", deathCertificateRepository.countByCertificateDetailsIssueDateGreaterThan(targetDate));
+		modelMap.addAttribute("totalStats", 
+			((Long)modelMap.getAttribute("birthStats"))+((Long)modelMap.getAttribute("marriageStats"))+((Long)modelMap.getAttribute("deathStats"))
+		);
+
 		return "/client/core/home.html";
 	}
+
+	private Date getTargetDate(){
+		Date targetDate = new Date(0);
+		targetDate.setYear(new Date(System.currentTimeMillis()).getYear()); //TODO: REPLACE DEPRECATED LIBRARY
+		return targetDate;
+	}
+
 	
 }

@@ -11,7 +11,6 @@ import lombok.Data;
 public class AddressForm {
 	
 	private Country country;
-	private Nationality nationality;
 	
 	private String city;
 	
@@ -24,11 +23,11 @@ public class AddressForm {
 	public Address toAddress(){
 		return new Address(
 				country,
-			nationality,
 			city,
 			subCity,
-			wereda,
-			houseNumber
+			houseNumber,
+			wereda
+			
 		);
 	}
 

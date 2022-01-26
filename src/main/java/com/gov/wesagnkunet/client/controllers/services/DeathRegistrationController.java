@@ -1,12 +1,15 @@
 package com.gov.wesagnkunet.client.controllers.services;
 
 import java.security.Principal;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.validation.Valid;
 
 import com.gov.wesagnkunet.admin.data.repositories.DeathCertificateRequestRepository;
 import com.gov.wesagnkunet.client.controllers.ClientController;
 import com.gov.wesagnkunet.client.controllers.services.forms.DeathRegistrationForm;
+import com.gov.wesagnkunet.client.data.models.DeathCertificate.Title;
 import com.gov.wesagnkunet.client.data.repositories.DeathCertificateRepository;
 import com.gov.wesagnkunet.lib.media.services.FileStorageService;
 
@@ -31,7 +34,7 @@ public class DeathRegistrationController extends ClientController {
 
      
 
-    @GetMapping("/death")
+    @GetMapping("/registration/death")
     public String dislayDeathForm(ModelMap map) {
 
         DeathRegistrationForm deathRegistrationForm = new DeathRegistrationForm();
@@ -47,7 +50,7 @@ public class DeathRegistrationController extends ClientController {
         if (bindingResult.hasErrors())
             return "/client/registration/death-registration";
 
-        //  DeathRegistrationForm.createCertificateRequest();
+        deathRegistrationForm.createCertificateRequest();
         return "redirect:/?requestSuccessfull";
     }
     
@@ -55,5 +58,10 @@ public class DeathRegistrationController extends ClientController {
     private DeathRegistrationForm deathRegistrationForm(Principal principal) {
         return new DeathRegistrationForm(getClient(principal), storageService, deathCertificateRequestRepository);
     }
+
+	@ModelAttribute("titles")
+	private List<Title> titles(){
+		return Arrays.asList(Title.values());
+	}
     
 }

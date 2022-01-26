@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{admin/dashboard/base.html}"
+	  >
+	  <head>
+		  <title layout:fragment="title">CONTACT MESSAGES</title>
+	  </head>
+	<body th:with="currentTab='Contact Messages'">
+		
+		<main layout:fragment="main">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="">
+						<h1 class="local-fs-3 font-weight-bold text-center mb-5">Contact Messages</h1>
+					</div>
+				</div>
+				
+				<div class="my-5">
+					<div class="h-100 w-100 d-flex" th:if="${messages.size()} == 0">
+						<h4 class="text-muted m-auto">There are no messages.</h4>
+
+					</div>
+					<div class="row h4 fw-bold mb-5" th:if="${messages.size()}!=0">
+						<div class="col-4">
+							Full Name
+						</div>
+						<div class="col-4">
+							Date
+						</div>
+						<div class="col-4">
+
+						</div>
+					</div>
+					<div class="row border-bottom py-4" th:each="message: ${messages}">
+						<div class="col-4 my-auto">
+							[[${message.firstName}]] [[${message.lastName}]]
+						</div>
+						<div class="col-4 my-auto">
+							[[${message.date}]]
+						</div>
+						<div class="col-4 my-auto d-flex">
+							<button type="button" class="btn btn-outline-primary rounded rounded-pill ml-auto px-5 py-2 mx-auto" data-bs-toggle="modal" th:data-bs-target="${'#messageModal'+message.id}">
+								VIEW
+							</button>
+							
+							<div class="modal fade text-dark" th:id="${'messageModal'+message.id}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">Details</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<div class="container-fluid">
+												
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														First Name
+													</div>
+													<div class="col-6">
+														[[${message.firstName}]]
+													</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Last Name
+													</div>
+													<div class="col-6">
+														[[${message.lastName}]]
+													</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Phone Number
+													</div>
+													<div class="col-6">
+														<a th:href="${'tel:'+message.phoneNumber}" class="link">[[${message.phoneNumber}]]</a>
+													</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														E-Mail
+													</div>
+													<div class="col-6">
+														<a th:href="${'mailto:'+message.email}" class="link">[[${message.email}]]</a>
+													</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-12 fw-bold">
+														Message:
+													</div>
+													<p class="col-12 mt-3">
+														[[${message.message}]]
+													</p>
+												</div>
+											
+
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+											
+										</div>
+
+
+										
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+
+		</main>
+
+	</body>
+
+</html>

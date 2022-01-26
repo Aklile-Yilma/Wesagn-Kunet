@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{client/base.html}"
+	  >
+	  <head>
+		  <title layout:fragment="title">WELCOME TO WESAGN KUNET</title>
+	  </head>
+	<body>
+		
+		<main layout:fragment="main" class="container-fluid">
+			<div class="col-10 mx-auto my-5">
+				<h1 class="fw-bold">My Certificates</h1>
+				<div class="row mt-5">
+					<div th:each="certificate: ${certificates}" th:with="details=${certificate.certificateDetails}" class="col-4 my-4">
+						
+						<div class="card w-100 mx-auto" >
+							
+							<div th:if="${details.type.name == 'BIRTH'}" class="bg-success">
+								<img src="/static/client/account/my_certificates/birth.jpg" class="card-img-top" alt="...">
+							</div>
+							<div th:if="${details.type.name =='MARRIAGE'}" class="bg-" >
+								<img src="/static/client/account/my_certificates/marriage.webp" class="card-img-top" alt="...">
+							</div>
+							<div th:if="${details.type.name == 'DEATH'}" class="bg-success">
+								<img src="/static/client/account/my_certificates/death.jpg" class="card-img-top" alt="...">
+							</div>
+							
+						  <div class="card-body">
+							<h5 class="card-title fw-bold">[[${details.type.name}]] CERTIFICATE</h5>
+							<h6 class="card-subtitle mb-2 text-muted ">[[${details.issueDate}]]</h6>
+							
+							<button class="btn btn-primary px-5 mt-4" data-bs-toggle="modal" th:data-bs-target="${'#modal'+details.id}">VIEW</button>
+
+							
+							<div class="modal fade" th:id="${'modal'+details.id}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+								<div class="modal-dialog mw-100 local-px-7 py-5 modal-fullscreen" role="document">
+									<div class="modal-content w-100 bg-light" style="background-image: url('/static/client/account/my_certificates/texture.png'); background-repeat: repeat; background-size: 10%;;">
+										
+										<div class="modal-body p-5">
+											
+											<div class="">
+												<div class="mx-auto col-2">
+													<img src="/static/client/account/my_certificates/flag.png" class="w-100">
+												</div>
+												<div class="mx-auto col-12 h4 fw-bold text-center mt-2">
+													የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ የወሳኝ ኩነት ምዝገባ
+												</div>
+												<div class="mx-auto col-12 h4 fw-bold text-center">
+													Federal Democratic Republic of Ethiopia Vital Event Registration
+												</div>
+											</div>
+											
+											<div class="mt-4" th:if="${details.type.name == 'MARRIAGE'}">
+												
+
+												<div class="row">
+													<div class="col-2">
+														<img th:src="${media.getUrl(certificate.wife.photo)}" class="col-9 p-0 border border-dark" style="border-width: 5px !important;">
+													</div>
+													<div class="col-8">
+														<h4 class="mx-auto col-12 h4 fw-bold text-center mt-2">Marriage Certificate</h4>
+														<h4 class="mx-auto col-12 h4 fw-bold text-center">የጋብቻ ምስክር ወረቀት</h4>
+													</div>
+													<div class="col-2">
+														<img th:src="${media.getUrl(certificate.husband.photo)}" class="col-9 p-0 border border-dark" style="border-width: 5px !important;">
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-6" th:with="spouseType='Wife'">
+														<div class="row">
+															<div th:remove="tag" class="row" th:with="spouse=${certificate.wife}" layout:insert="~{client/account/components/spouse_details.html}">
+
+															</div>
+
+														</div>
+														
+													</div>
+													<div class="col-6" th:with="spouseType='Husband'">
+														<div class="row">
+															<div th:remove="tag" class="row" th:with="spouse=${certificate.husband}" layout:insert="~{client/account/components/spouse_details.html}">
+															</div>
+
+														</div>
+													</div>
+												</div>
+
+												<div class="row">
+													<div th:remove="tag" layout:insert="~{client/account/components/address_details.html}" th:with="address=${certificate.marriageAddress}">
+
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Date: </span>[[${certificate.marriageDate}]]
+													</div>
+												
+												</div>
+
+											</div>
+
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						  </div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

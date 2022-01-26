@@ -1,12 +1,15 @@
 package com.gov.wesagnkunet.client.controllers.services.forms;
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.BirthCertificateRequest;
 import com.gov.wesagnkunet.admin.data.repositories.BirthCertificateRequestRepository;
 import com.gov.wesagnkunet.client.controllers.services.forms.components.AddressForm;
+import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.controllers.services.forms.components.NameForm;
 import com.gov.wesagnkunet.client.data.models.Address;
 import com.gov.wesagnkunet.client.data.models.Client;
@@ -71,10 +74,14 @@ public class BirthRegistrationForm {
     }
 
     
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class ChildForm{
 
         private NameForm fullName;
-        private String nationality= "Ethiopian";
+
+        private String nationality;
 
         private Date dateOfBirth;
         private Client.Sex sex;
@@ -92,11 +99,6 @@ public class BirthRegistrationForm {
                 nationality
             );
         }
-
-            @Override
-            public String toString(){
-                return this.nationality;
-            }
         }
 
 
@@ -105,6 +107,7 @@ public class BirthRegistrationForm {
         @Data
         public static class ParentForm{
             private NameForm fullName;
+        
             private String nationality;
 
             public ParentInformation toParent(FileStorageService storageService){

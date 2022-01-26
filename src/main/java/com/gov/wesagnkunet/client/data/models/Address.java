@@ -30,9 +30,6 @@ public class Address {
 	
 	@ManyToOne
 	private Country country;
-
-	@Transient
-	private Nationality nationality;
 	
 	private String city;
 	
@@ -41,6 +38,8 @@ public class Address {
 	private Integer wereda;
 	
 	private Integer houseNumber;
+
+	// private String nationality;
 
 
 	

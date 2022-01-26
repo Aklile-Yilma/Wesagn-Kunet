@@ -2,6 +2,8 @@ package com.gov.wesagnkunet.admin.controllers;
 
 import java.security.Principal;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.gov.wesagnkunet.admin.data.models.Admin;
 import com.gov.wesagnkunet.admin.data.repositories.AdminRepository;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 @Controller
-public class AdminController extends WesagnKunetController{
+public class AdminDashboardController extends WesagnKunetController{
 	
 	@Autowired
 	private TabRepository tabRepository;
@@ -40,5 +42,20 @@ public class AdminController extends WesagnKunetController{
 		return adminRepository.findByUser(
 			userRepository.findByUsername(principal.getName())
 		);
+	}
+
+	@ModelAttribute("notifications")
+	protected Map<String, Integer> notifications(){
+		HashMap<String, Integer> notifications = new HashMap<String, Integer>();
+		notifications.put(
+			"Birth Certificates", 3 //TODO
+		);
+		notifications.put(
+			"Marriage Certificates", 0 //TODO
+		);
+		notifications.put(
+			"Death Certificates", 10 //TODO
+		);
+		return notifications;
 	}
 }

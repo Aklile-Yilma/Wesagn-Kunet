@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="~{admin/dashboard/base.html}"
+	  >
+	  <head>
+		  <title layout:fragment="title">DEATH REGISTRATION REQUESTS</title>
+	  </head>
+	<body th:with="currentTab='Death Certificates'">
+		
+		<main layout:fragment="main">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="">
+						<h1 class="local-fs-3 font-weight-bold text-center mb-5">Death Requests</h1>
+					</div>
+				</div>
+				
+				<div class="my-5">
+					<div class="h-100 w-100 d-flex" th:if="${deathRequests.size()} == 0">
+						<h4 class="text-muted m-auto">There are no new requests.</h4>
+
+					</div>
+					<div class="row h4 fw-bold mb-5" th:if="${deathRequests.size()}!=0">
+						<div class="col-4">
+							Applier
+						</div>
+						<div class="col-4">
+							Date
+						</div>
+						<div class="col-4">
+
+						</div>
+					</div>
+					<div class="row border-bottom py-4" th:each="request: ${deathRequests}">
+						<div class="col-4 my-auto">
+							[[${request.certificateRequestDetails.client.fullName}]]
+						</div>
+						<div class="col-4 my-auto">
+							[[${request.certificateRequestDetails.applicationDate}]]
+						</div>
+						<div class="col-4 my-auto d-flex">
+							<button type="button" class="btn btn-outline-danger rounded rounded-pill ml-auto px-5 py-2 mx-auto" data-bs-toggle="modal" th:data-bs-target="${'#marriageModal'+request.id}">
+								VIEW
+							</button>
+							
+							<div class="modal fade text-dark" th:id="${'marriageModal'+request.id}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">Details</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<div class="container-fluid">
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">First Name</div>
+													<div class="col-6">[[${request.name.firstName}]]</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">Middle Name</div>
+													<div class="col-6">[[${request.name.middleName}]]</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">Last Name</div>
+													<div class="col-6">[[${request.name.lastName}]]</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">Title</div>
+													<div class="col-6">[[${request.title}]]</div>
+												</div>
+												<div th:with="address=${request.address}" th:remove="tag" layout:insert="~{admin/dashboard/components/address_view.html}">
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Date of Death
+													</div>
+													<div class="col-6">
+														[[${request.dateOfDeath}]]
+													</div>
+												</div>
+												<div class="row py-3 border-bottom">
+													<div class="col-6 fw-bold">
+														Date of Birth
+													</div>
+													<div class="col-6">
+														[[${request.dateOfBirth}]]
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+											<form class="" method="post" action="" th:object="${marriageApprovalForm}">
+												<input type="hidden" th:value="${_csrf.token}" name="_csrf">
+												<input type="hidden" value="false" name="approved">
+												<input type="hidden" th:value="${request.id}" name="request">
+												<button type="submit" class="btn btn-danger">Delete</button>
+											</form>
+											<form class="" method="post" action="" th:object="${marriageApprovalForm}">
+												<input type="hidden" th:value="${_csrf.token}" name="_csrf">
+												<input type="hidden" value="true" name="approved">
+												<input type="hidden" th:value="${request.id}" name="request">
+												<button type="submit" class="btn btn-success">Approve</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+
+		</main>
+
+	</body>
+
+</html>
