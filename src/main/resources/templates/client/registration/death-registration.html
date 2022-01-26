@@ -79,7 +79,7 @@
                             <div th:if="${#fields.hasErrors('dateOfBirth')}" class="text-danger" th:errors="*{dateOfBirth}"></div>
                         </div>
 
-                       <!--- <div class="form-group col-md-4 mb-3">
+                        <!--- <div class="form-group col-md-4 mb-3">
                             <label for="brCertID" class="form-input-lable mt-lg-3">Birth Certificate ID</label>
                             <input type="text" class="form-control" id="brCertID" placeholder="Birth Certificate ID" required>
 
@@ -139,7 +139,7 @@
                             <div>
                                 <label for="woreda" class="form-input-lable mt-lg-3">Woreda</label>
 
-                                <input type="number" name="address.wereda" id="woreda" class="form-control" required>
+                                <input type="number" min="0" name="address.wereda" id="woreda" class="form-control" required>
                             </div>
                             <!-- <div th:if="${#fields.hasErrors('address.woreda')}" class="text-danger" th:errors="*{address.woreda}"></div> -->
 
