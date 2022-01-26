@@ -31,9 +31,6 @@ public class Address {
 	@ManyToOne
 	private Country country;
 
-	@Transient
-	private Nationality nationality;
-	
 	private String city;
 	
 	private String subCity;
