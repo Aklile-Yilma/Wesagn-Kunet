@@ -30,7 +30,11 @@ public class Address {
 	
 	@ManyToOne
 	private Country country;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> a14a556d1268e5366afca4aacf73ec188413e392
 	private String city;
 	
 	private String subCity;
@@ -38,6 +42,8 @@ public class Address {
 	private Integer wereda;
 	
 	private Integer houseNumber;
+
+	private String nationality;
 
 
 	
