@@ -10,4 +10,5 @@ public interface MarriageCertificateRequestRepository extends CrudRepository<Mar
 	
 	public List<MarriageCertificateRequest> findByCertificateRequestDetailsApproved(Boolean approved);
 
+	public Long countByCertificateRequestDetailsApproved(Boolean approved);
 }

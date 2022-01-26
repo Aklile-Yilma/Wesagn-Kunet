@@ -4,9 +4,12 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+<<<<<<< HEAD
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+=======
+>>>>>>> parent of 9208da2 (Added backend form validation)
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.BirthCertificateRequest;
@@ -23,7 +26,6 @@ import com.gov.wesagnkunet.lib.media.services.FileStorageService;
 
 import org.apache.groovy.parser.antlr4.GroovyParser.SuperPrmrAltContext;
 import org.hibernate.annotations.AttributeAccessor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
@@ -83,14 +85,14 @@ public class BirthRegistrationForm {
 
 		private NameForm fullName;
 
-        @NotBlank(message = "Nationality is required")
         private String nationality;
 
-        @NotBlank(message = "Date of birth is required")
-        @DateTimeFormat
         private Date dateOfBirth;
+<<<<<<< HEAD
         
         @NotNull
+=======
+>>>>>>> parent of 9208da2 (Added backend form validation)
         private Client.Sex sex;
         private MultipartFile photo;
         private Address birthAddress;
@@ -129,7 +131,6 @@ public class BirthRegistrationForm {
         public static class ParentForm{
             private NameForm fullName;
         
-            @NotBlank(message = "Nationality is required")
             private String nationality;
 
 		public ParentInformation toParent(){

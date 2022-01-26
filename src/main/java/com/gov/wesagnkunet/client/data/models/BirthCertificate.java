@@ -16,12 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import com.gov.wesagnkunet.client.data.models.Address.Nationality;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -85,21 +81,15 @@ public class BirthCertificate implements Certificate {
 		@Embedded
 		private Name fullName;
 
-		@DateTimeFormat
-		@NotBlank(message = "Date is required")
 		private Date dateOfBirth;
 
 		@Enumerated(EnumType.STRING)
 		private Client.Sex sex;
 
-		@NotNull
-		@NotBlank(message = "Photo is required")
 		private String photo;
 
 		@Embedded
-		private Address birthAddress;
-		
-		@NotNull(message = "Please select Nationality")
+		private Address birthAddress;		
 		private String nationality;
 
 	}
@@ -112,7 +102,6 @@ public class BirthCertificate implements Certificate {
 
 		@Embedded
 		private Name fullName;
-		@NotNull(message = "Please select Nationality")
 		private String nationality;
 
 	}

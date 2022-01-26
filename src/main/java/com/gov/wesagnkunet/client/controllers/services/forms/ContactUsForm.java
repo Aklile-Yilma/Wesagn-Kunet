@@ -6,11 +6,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-
-import org.springframework.format.annotation.NumberFormat;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,17 +21,13 @@ public class ContactUsForm {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    @NotBlank(message = "Please provide first name")
+    
     private String firstName;
 
-    @NotBlank(message = "Please provide last name")
     private String lastName;
 
-    @NotBlank(message = "Phone number is required")
-    @NumberFormat
     private Integer phoneNumber;
     
-    @Email(message = "Please provide valid email")
     private String Email;
 
     private String message;

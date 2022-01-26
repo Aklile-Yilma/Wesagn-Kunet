@@ -14,9 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -91,14 +88,10 @@ public class MarriageCertificate implements Certificate{
 		@Embedded
 		private Name fullName;
 
-		@NotBlank(message = "Nationality is required")
 		private String nationality;
 
-		@NotBlank(message = "Date if birth is required")
-		@DateTimeFormat
 		private Date dateOfBirth;
 
-		@NotBlank(message = "Photo is required")
 		private String photo;
 
 	}

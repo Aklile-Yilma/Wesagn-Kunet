@@ -9,5 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface BirthCertificateRequestRepository extends CrudRepository <BirthCertificateRequest, Long>{
 
     public List<BirthCertificateRequest> findByCertificateRequestDetailsApproved(Boolean approved);
+
+	public Long countByCertificateRequestDetailsApproved(Boolean approved);
     
 }

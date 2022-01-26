@@ -38,7 +38,7 @@ public class ContactUsController  extends ClientController{
             return "/client/core/contactUs";
         }
         contactUsForm.createContactMessage(contactMessageRepository);
-        return "redirect:/?requestSuccessfull";
+        return "redirect:/";
     }
     
     @ModelAttribute("contactUsForm")

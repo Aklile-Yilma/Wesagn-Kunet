@@ -562,7 +562,7 @@ public class WesagnkunetApplication {
 						new Tab("Birth Certificates", "/admin/dashboard/requests/birth", 0, "admin_side", null, "fas fa-child"),
 						new Tab("Marriage Certificates", "/admin/dashboard/requests/marriage", 1, "admin_side", null, "fas fa-ring"),
 						new Tab("Death Certificates", "/admin/dashboard/requests/death", 2, "admin_side", null, "fas fa-book-dead"),
-						new Tab("Contact Messages", "/admin/dashboard/requests/contact", 3, "admin_side", null, "fas fa-envelope")
+						new Tab("Contact Messages", "/admin/dashboard/contact", 3, "admin_side", null, "fas fa-envelope")
 					)
 				);
 				

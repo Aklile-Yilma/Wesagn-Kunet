@@ -7,6 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface DeathCertificateRequestRepository extends CrudRepository<DeathCertificateRequest, Long> {
+
     public List<DeathCertificateRequest> findByCertificateRequestDetailsApproved(Boolean approved);
     
+	public Long countByCertificateRequestDetailsApproved(Boolean approved);
 }

@@ -1,22 +1,11 @@
 package com.gov.wesagnkunet.admin.controllers;
 
 import java.security.Principal;
-import java.sql.Date;
-import java.util.Arrays;
 
 import javax.validation.Valid;
 
 import com.gov.wesagnkunet.admin.controllers.forms.BirthApprovalForm;
-import com.gov.wesagnkunet.admin.data.models.BirthCertificateRequest;
-import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.repositories.BirthCertificateRequestRepository;
-import com.gov.wesagnkunet.client.data.models.Address;
-import com.gov.wesagnkunet.client.data.models.CertificateDetails;
-import com.gov.wesagnkunet.client.data.models.Client;
-import com.gov.wesagnkunet.client.data.models.Name;
-import com.gov.wesagnkunet.client.data.models.Address.Country;
-import com.gov.wesagnkunet.client.data.models.BirthCertificate.ChildInformation;
-import com.gov.wesagnkunet.client.data.models.BirthCertificate.ParentInformation;
 import com.gov.wesagnkunet.client.data.repositories.BirthCertificateRepository;
 import com.gov.wesagnkunet.client.data.repositories.CertificateDetailsRepository;
 import com.gov.wesagnkunet.client.data.repositories.ClientRepository;

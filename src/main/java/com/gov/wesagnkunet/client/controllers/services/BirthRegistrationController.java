@@ -36,9 +36,6 @@ public class BirthRegistrationController extends ClientController {
     private BirthCertificateRequestRepository birthCertificateRequestRepository;
 
     
-	@Autowired
-	private TabRepository tabRepository;
-
 
     @GetMapping("/registration/birth")
     public String displayBirthform() {
@@ -50,8 +47,6 @@ public class BirthRegistrationController extends ClientController {
         if(bindingResult.hasErrors()){
             return "/client/registration/birth-registration";
         }
-
-		log.info("Here");
 
         birthRegistrationForm.createCertificateRequest();
         return "redirect:/?requestSuccessfull";
