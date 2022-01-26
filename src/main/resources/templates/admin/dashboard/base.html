@@ -15,8 +15,11 @@
 	<body class="container-fluid bg-primary text-light vh-100">
 		<header class="d-flex my-3">
 			<div class="ml-auto position-relative">
-				<button class="dropdown-toggle btn btn-outline-light px-4 py-2 rounded rounded-pill" role="button" data-bs-toggle="dropdown"><i class="fa fa-user"></i><span class="ml-3" th:text="${admin.fullName}"></span></button>
+				<button class="dropdown-toggle btn btn-outline-light px-4 py-2 rounded rounded-pill" role="button" data-bs-toggle="dropdown"><i class="fa fa-user"></i><span class="ml-3" th:text="${admin.client.fullName}"></span></button>
 				<ul class="dropdown-menu">
+					<li class="">
+						<a class="dropdown-item" href="/">Home</a>
+					</li>
 					<li class="">
 						<form action="/logout" method="post">
 							<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>

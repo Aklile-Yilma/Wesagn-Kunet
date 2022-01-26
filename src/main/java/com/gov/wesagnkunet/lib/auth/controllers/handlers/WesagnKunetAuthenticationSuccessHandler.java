@@ -24,7 +24,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 public class WesagnKunetAuthenticationSuccessHandler implements AuthenticationSuccessHandler{
 
 	private Map<String, String> redirectionMap = new HashMap<String, String>(){{
-		put("ROLE_"+Role.ADMIN.name(), "/admin/dashboard/requests/marriage");
+		put("ROLE_"+Role.ADMIN.name(), "/admin/dashboard/requests/birth");
 		put("ROLE_"+Role.CLIENT.name(), "/");
 	}};
 
@@ -46,9 +46,6 @@ public class WesagnKunetAuthenticationSuccessHandler implements AuthenticationSu
 	private String getRedirectUrl(Authentication authentication){
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		
-		if(authorities.size() != 1)
-			throw new IllegalStateException();
-
 		GrantedAuthority authority = authorities.iterator().next();
 		String redirectUrl = redirectionMap.get(authority.getAuthority());
 		if(redirectUrl == null)

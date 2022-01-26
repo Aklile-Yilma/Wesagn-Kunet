@@ -39,7 +39,7 @@ public class AdminDashboardController extends WesagnKunetController{
 
 	@ModelAttribute("admin")
 	protected Admin admin(Principal principal){
-		return adminRepository.findByUser(
+		return adminRepository.findByClientUser(
 			userRepository.findByUsername(principal.getName())
 		);
 	}
