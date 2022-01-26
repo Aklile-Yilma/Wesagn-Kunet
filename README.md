@@ -6,7 +6,7 @@ Business feature #1 Identification - identification refers to the process of ass
 
 Business feature #2 Digital Certificate- where users can use their phone to view or give proof of their valid certificate.
 
-Business feature #3 Certificate Management- 
+Business feature #3 Certificate Management- users can ask for approval and admins can approve or disapprove the request
         
 
 
