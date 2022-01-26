@@ -102,6 +102,13 @@ public class SignUpForm {
 		return password.equals(confirmPassword);
 	}
 
+	@AssertTrue(message = "Invalid Date")
+	public boolean isBirthDateValid(){
+		if(dateOfBirth == null)
+			return true;
+		return new Date(System.currentTimeMillis()).after(dateOfBirth);
+	}
+
 	public Client createClient() throws UserExistsException{
 		User user = userManager.createUser(email, password, Role.CLIENT);
 		Client client = new Client(
