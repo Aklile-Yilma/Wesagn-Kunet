@@ -11,5 +11,7 @@ public interface TabRepository extends CrudRepository<Tab, Integer>{
 	public List<Tab> findByClazzOrderByRelativeOrderAsc(String clazz);
 
 	public List<Tab> findByClazzAndParentTabOrderByRelativeOrderAsc(String clazz, Tab parentTab);
-	
+
+	public Tab findByText(String text);
+
 }

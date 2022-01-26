@@ -43,7 +43,7 @@
 								<div class="" th:if="${client}!=null">
 									<div class="px-4 py-2 rounded position-relative">
 										<span href="#" class="btn btn-outline-primary d-flex" role="button" data-bs-toggle="dropdown">
-											<div style="width:3em; height:3em;" class="rounded-circle rounded overflow-hidden">
+											<div style="width:3em; height:3em;" class="rounded-circle rounded overflow-hidden" th:if="${client.photo != null}">
 												<img th:src="${media.getUrl(client.photo)}" class="w-100">
 											</div>
 											<div class="my-auto mx-3" th:text="${client.fullName}"></div>
@@ -53,6 +53,7 @@
 										</span>
 										<ul class="dropdown-menu">
 											<li class=""><a href="/account/my-certificates" class="dropdown-item">My Certificates</a></li>
+											<li class="" th:if="${isAdmin}"><a href="/admin/dashboard/requests/birth" class="dropdown-item">Admin Page</a></li>
 											<li class="">
 												<form action="/logout" method="post">
 													<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
