@@ -60,7 +60,7 @@ public class DeathCertificate implements Certificate {
 		 Address address,
 		 Date dateOfBirth,
 		 Date dateOfDeath,
-		 Nationality nationality,
+		 
 		Title title,
 		 Name name
 	) {

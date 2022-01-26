@@ -2,7 +2,7 @@ package com.gov.wesagnkunet.client.controllers.services.forms;
 
 
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Transient;
 

@@ -4,12 +4,16 @@ import java.util.Arrays;
 
 import java.util.List;
 
+import com.gov.wesagnkunet.admin.data.models.Admin;
 import com.gov.wesagnkunet.admin.data.repositories.AdminRepository;
+import com.gov.wesagnkunet.client.data.models.Name;
 import com.gov.wesagnkunet.client.data.models.Address.Country;
 import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.data.repositories.CountryRepository;
 import com.gov.wesagnkunet.client.data.repositories.NationalityRepository;
 import com.gov.wesagnkunet.lib.auth.UserManager;
+import com.gov.wesagnkunet.lib.auth.data.models.User;
+import com.gov.wesagnkunet.lib.auth.data.models.User.Role;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,8 +37,11 @@ public class WesagnkunetApplication {
 
 			@Override
 			public void run(String... args) throws Exception {
-				//	User user = userManager.createUser("admin@gmail.com", "password", Role.ADMIN);
-				//	adminRepository.save(new Admin(user, new Name("Abreham", "Atlaw", "Alemu")));
+					// User user = userManager.createUser("admin@gmail.com", "password", Role.ADMIN);
+					// adminRepository.save(new Admin(user, new Name("Abreham", "Atlaw", "Alemu")));
+					
+				// User user = userManager.createUser("admin@gmail.com", "password", Role.ADMIN);
+				// 	adminRepository.save(new Admin(user, new Name("Temesgen", "Zewude", "Denabo")));
 
 				// List<String> countries=Arrays.asList(
 					

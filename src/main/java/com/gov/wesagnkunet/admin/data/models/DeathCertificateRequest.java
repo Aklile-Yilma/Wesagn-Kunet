@@ -1,6 +1,6 @@
 package com.gov.wesagnkunet.admin.data.models;
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -70,22 +70,22 @@ public class DeathCertificateRequest implements CertificateRequest {
         this.title = title;
     }
 
-    // public DeathCertificate toDeathCertificate(CertificateDetailsRepository certificateDetailsRepository,
-    //         DeathCertificateRepository deathCertificateRepository) {
+    public DeathCertificate toDeathCertificate(CertificateDetailsRepository certificateDetailsRepository,
+            DeathCertificateRepository deathCertificateRepository) {
         
-    //             // DeathCertificate certificate =new DeathCertificate(
-    //             //     certificateRequestDetails.toCertificateDetails(certificateDetailsRepository, Type.DEATH),
-    //             //      address,
-    //             //       dateOfBirth,
-    //             //         dateOfDeath,
-    //             //        title, 
-    //             //        nationality, 
-    //             //        name
+                DeathCertificate certificate =new DeathCertificate(
+                    certificateRequestDetails.toCertificateDetails(certificateDetailsRepository, Type.DEATH),
+                     address,
+                      dateOfBirth,
+                        dateOfDeath,
+                       title, 
+                       
+                       name
 
-    //             // );
+                );
 
-    //             deathCertificateRepository.save(certificate);
+                deathCertificateRepository.save(certificate);
 
-    //             return certificate;
-    // }
+                return certificate;
+    }
 }
