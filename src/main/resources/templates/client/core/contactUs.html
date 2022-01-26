@@ -14,7 +14,7 @@
 	 
 	
 			<div class="form-row  d-block d-md-flex local-mb-7">
-				<div class="border border-primary rounded local-br-2  p-lg-5 col-10  col-lg-5 m-auto ml-md-5">
+				<div class="border border-primary rounded local-br-2  p-2 p-md-5 col-10  col-lg-5 m-auto ml-md-5 shadow-lg">
 					<h2 class="text-center ">Contact info</h2>
 					<div class=" d-flex">
 						<h5 class="ml-lg-5">Phone Number </h5>  <a href="tel:+2519116112233" class="text-right ml-auto">+2519116112233</a>
@@ -29,24 +29,27 @@
 					</div>
 					  
 				</div>
-		
-				<div class="mapouter col-6 m-lg-auto mt-5 mb-5">
+
+				<div>
+				<div class="mapouter col-10 col-md-6 mt-5 mb-5">
 						<div class="gmap_canvas">
 						<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=AAiT&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="100%" frameborder="0">
 					</iframe>
 					<a href="https://www.whatismyip-address.com/divi-discount/"></a>
 					<br>
-					<style>.mapouter{position:relative;text-align:right;height:500px;width:600px;          
+					<style>.mapouter{position:relative;text-align:right;width:600px;height:600px;          
 					}
 							.gmap_canvas{margin:auto;}
 					</style>
-					<a href="https://www.embedgooglemap.net/">google maps for web site</a>
-					<style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+					<a href="https://www.embedgooglemap.net/"></a>
+					<style>.gmap_canvas {overflow:hidden;background:none!important;height:600px;width:600px;}
 					</style>
 					</div>
 				</div>
+				
 	
 			</div>
+		</div>
 	
 	
 			<div class="row d-block d-md-flex m-5 local-p-8">
@@ -60,7 +63,7 @@
 			 
 			</div>
 	
-			<form class="col-lg-5 border border-dark bg-gray p-lg-5 ml-lg-auto" method="post"  th:object="${contactUsForm}">
+			<form class="col-lg-5 border border-dark bg-gray p-lg-5 ml-lg-auto shadow-lg" method="post"  th:object="${contactUsForm}">
 
 					<input type="hidden" name="_csrf" th:value="${_csrf.token}">
 				
