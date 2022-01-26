@@ -52,11 +52,9 @@ public class SignUpForm {
 		this.clientRepository = clientRepository;
 	}
 
-	@NotBlank(message = "Email is required")
 	@Email(message = "Please provide a valid email")
 	private String email;
 
-	@NotBlank
 	@Size(min=8, message = "Your password should be at least 8 characters long.")
 	private String password;
 

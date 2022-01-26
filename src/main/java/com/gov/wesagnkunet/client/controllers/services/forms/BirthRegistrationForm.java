@@ -4,12 +4,9 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
-<<<<<<< HEAD
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-=======
->>>>>>> parent of 9208da2 (Added backend form validation)
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.BirthCertificateRequest;
@@ -88,11 +85,8 @@ public class BirthRegistrationForm {
         private String nationality;
 
         private Date dateOfBirth;
-<<<<<<< HEAD
         
         @NotNull
-=======
->>>>>>> parent of 9208da2 (Added backend form validation)
         private Client.Sex sex;
         private MultipartFile photo;
         private Address birthAddress;
