@@ -12,6 +12,7 @@ import com.gov.wesagnkunet.admin.data.repositories.MarriageCertificateRequestRep
 import com.gov.wesagnkunet.client.controllers.services.forms.components.AddressForm;
 import com.gov.wesagnkunet.client.controllers.services.forms.components.NameForm;
 import com.gov.wesagnkunet.client.data.models.Client;
+import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.data.models.MarriageCertificate.Spouse;
 import com.gov.wesagnkunet.lib.media.services.FileStorageService;
 
@@ -73,7 +74,7 @@ public class MarriageRegistrationForm {
 
 		private NameForm fullName;
 
-		private String nationality ="Ethiopian";
+		private Nationality nationality;
 
 		private Date dateOfBirth;
 
@@ -82,7 +83,7 @@ public class MarriageRegistrationForm {
 		public Spouse toSpouse(FileStorageService storageService){
 			return new Spouse(
 				fullName.toName(),
-				nationality,
+				nationality.getName(),
 				dateOfBirth,
 				storageService.store(photo)
 			);

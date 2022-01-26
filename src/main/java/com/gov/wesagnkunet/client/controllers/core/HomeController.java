@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -33,8 +34,22 @@ public class HomeController extends ClientController{
 
 
 	@GetMapping("/")
-	public String displayHome(ModelMap modelMap){
+	public String displayHome(
+		ModelMap modelMap,
+		@RequestParam(name = "requestSuccessfull", required = false) Object requestSuccessfull,
+		@RequestParam(name = "signUpSuccessfull", required = false) Object signUpSuccessfull
+	){
 		
+		if(requestSuccessfull != null)
+			modelMap.addAttribute(
+				"requestSuccess", true
+			);
+		
+		if(signUpSuccessfull != null)
+			modelMap.addAttribute(
+				"signUpSuccess", true
+			);
+
 		Date targetDate = getTargetDate();
 
 		modelMap.addAttribute("birthStats", birthCertificateRepository.countByCertificateDetailsIssueDateGreaterThan(targetDate));
@@ -49,7 +64,7 @@ public class HomeController extends ClientController{
 
 	private Date getTargetDate(){
 		Date targetDate = new Date(0);
-		targetDate.setYear(new Date(System.currentTimeMillis()).getYear());
+		targetDate.setYear(new Date(System.currentTimeMillis()).getYear()); //TODO: REPLACE DEPRECATED LIBRARY
 		return targetDate;
 	}
 
