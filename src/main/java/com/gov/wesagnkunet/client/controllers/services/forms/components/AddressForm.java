@@ -11,7 +11,7 @@ import lombok.Data;
 public class AddressForm {
 	
 	private Country country;
-	private Nationality nationality;
+	private String nationality;
 	
 	private String city;
 	
@@ -26,9 +26,9 @@ public class AddressForm {
 				country,
 			nationality,
 			city,
-			subCity,
+			houseNumber,
 			wereda,
-			houseNumber
+			subCity
 		);
 	}
 

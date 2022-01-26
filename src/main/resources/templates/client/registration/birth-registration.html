@@ -4,7 +4,7 @@
 		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 		layout:decorate="~{client/base.html}">
 <head>
-    <title layout:fragment="title">Birth Certificate Form Page | WESAGN KUNET</title>
+    <title layout:fragment="title">Birth Certificate Registration | WESAGN KUNET</title>
 </head>
 
 <body>
@@ -50,16 +50,7 @@
                         <div th:if="${#fields.hasErrors('birthDate')}" class="text-danger" th:errors="*{birthDate}"></div>
                     <!-- row 3 -->
 
-                    <label class="form-label mt-2" for="country">Country</label>
-                        <select  name="birthAddress.country" class="custom-select"  id="country" required>
-                            <option value="">Select</option>
-                            <div th:remove="tag" th:each="country: ${countries}" th:object="${country}">
-								<option th:value="*{id}" th:text="*{name}" th:if="*{name}!='Ethiopia'"></option>
-								<option th:value="*{id}" th:text="*{name}" th:if="*{name}=='Ethiopia'" selected></option>
-							</div>
-							<option th:each="country: ${countries}" th:value="${country.id}" th:if="${country.name} == 'Ethiopia'" selected>[[${country.name}]]</option>
-                        </select>
-                        <div th:if="${#fields.hasErrors('birthAddress.country')}" class="text-danger" th:errors="*{birthAddress.country}"></div>
+                   
                     
                         <!-- row 4 -->
 
@@ -72,6 +63,18 @@
                         required
                         >
                         <div th:if="${#fields.hasErrors('birthAddress.wereda')}" class="text-danger" th:errors="*{birthAddress.wereda}"></div>
+
+                        <label class="form-label mt-2" for="country">Country</label>
+                        <select  name="birthAddress.country" class="custom-select"  id="country" required>
+                            <option value="">Select</option>
+                            <div th:remove="tag" th:each="country: ${countries}" th:object="${country}">
+								<option th:value="*{id}" th:text="*{name}" th:if="*{name}!='Ethiopia'"></option>
+								<option th:value="*{id}" th:text="*{name}" th:if="*{name}=='Ethiopia'" selected></option>
+							</div>
+							<option th:each="country: ${countries}" th:value="${country.id}" th:if="${country.name} == 'Ethiopia'" selected>[[${country.name}]]</option>
+                        </select>
+                        <div th:if="${#fields.hasErrors('birthAddress.country')}" class="text-danger" th:errors="*{birthAddress.country}"></div>
+                    
 
                     </div>
             </div> 
@@ -97,7 +100,7 @@
                     <!--row 2-->
 
                     <label for="sex" class="form-label mt-2">Sex</label>
-						<select class="custom-select form-control bg-transparent" aria-label="Sex" th:field="*{client.sex}" required>
+						<select class="custom-select form-control" aria-label="Sex" th:field="*{child.sex}" required>
 							<option value="" selected>Select</option>
 							<option th:each="sex: ${sexes}" th:value="${sex}" th:text="${sex}"></option>
 						  </select>
@@ -115,8 +118,8 @@
                     <div th:if="${#fields.hasErrors('birthAddress.city')}" class="text-danger" th:errors="*{birthAddress.city}"></div>
                 
                     <!--row 4-->
-                    <label class="form-lable mt-2" for="nationality">Nationality</label>      
-                    <select  name="nationality" class="custom-select"  id="nationality" required>
+                    <label for="nationalityC" class="form-label mt-2">Nationality</label>
+                    <select  name="child.nationality" class="custom-select"  id="nationalityC" required>
                         <option value="">Select</option>
                         <div th:remove="tag" th:each="nationality: ${nationalities}" th:object="${nationality}">
                             <option th:value="*{id}" th:text="*{name}" th:if="*{name}!='Ethiopian'"></option>
@@ -124,7 +127,7 @@
                         </div>
                         <option th:each="nationality: ${nationalities}" th:value="${nationality.id}" th:if="${nationality.name} == 'Ethiopian'" selected>[[${nationality.name}]]</option>
                     </select>
-                    <div th:if="${#fields.hasErrors('nationality')}" class="text-danger" th:errors="*{nationality}"></div>
+            <div th:if="${#fields.hasErrors('father.nationality')}" class="text-danger" th:errors="*{father.nationality}"></div>
                     
                 </div>
             </div>
@@ -132,7 +135,7 @@
                 <!-- col 3 -->
 
 
-                <div class="form-group row m-auto  w-75">
+                <div class="form-group row mb-auto  w-75">
 
                 
                 <div class="col">
@@ -150,8 +153,8 @@
 
                     <!-- row 2 -->
                     <label for="photo" class="form-label mt-2">Portrait Photo</label>
-                    <input type="file" class="form-control" th:field="*{photo}" required>
-                    <div th:if="${#fields.hasErrors('photo')}" class="text-danger" th:errors="*{photo}"></div>
+                    <input type="file" class="form-control" th:field="*{child.photo}" required>
+                    <div th:if="${#fields.hasErrors('child.photo')}" class="text-danger" th:errors="*{child.photo}"></div>
                    
                     <!-- row 3 -->
                     <label for="subCity" class="form-label mt-2">Sub City</label>

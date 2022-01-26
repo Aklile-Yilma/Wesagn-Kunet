@@ -33,8 +33,8 @@ public class WesagnkunetApplication {
 
 			@Override
 			public void run(String... args) throws Exception {
-				//	User user = userManager.createUser("admin@gmail.com", "password", Role.ADMIN);
-				//	adminRepository.save(new Admin(user, new Name("Abreham", "Atlaw", "Alemu")));
+					//User user = userManager.createUser("adminAklile@gmail.com", "password", Role.ADMIN);
+					//adminRepository.save(new Admin(user, new Name("AKLILE_ADMIN", "YILMA", "TESSEMA")));
 
 				// List<String> countries=Arrays.asList(
 					
