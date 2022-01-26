@@ -155,6 +155,42 @@
 
 											</div>
 
+											<div class="mt-4" th:if="${details.type.name == 'DEATH'}">
+												
+
+												<div class="row">
+													<div class="col-8 mx-auto">
+														<h4 class="mx-auto col-12 h4 fw-bold text-center mt-2">Death Certificate</h4>
+														<h4 class="mx-auto col-12 h4 fw-bold text-center">የሞት የምስክር ወረቀት</h4>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-3 my-3">
+														<span class="fw-bold">First Name: </span>[[${certificate.name.firstName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Middle Name: </span>[[${certificate.name.middleName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Last Name: </span>[[${certificate.name.lastName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Title: </span>[[${certificate.title}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Date of Birth: </span>[[${certificate.dateOfBirth}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Date of Death: </span>[[${certificate.dateOfDeath}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Title: </span>[[${certificate.title}]]
+													</div>
+												</div>
+											</div>
+
+
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
