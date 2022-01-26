@@ -60,9 +60,16 @@ public class BirthCertificate implements Certificate {
 	})
 	private ParentInformation fatherInformation;
 
-	public BirthCertificate(CertificateDetails certificateDetailsIn, ChildInformation childIn){
+	public BirthCertificate(
+		CertificateDetails certificateDetailsIn, 
+		ChildInformation childIn, 
+		ParentInformation motherInformation,
+		ParentInformation fatherInformation
+		){
 		this.certificateDetails =certificateDetailsIn;
 		this.childInformation= childIn;
+		this.motherInformation = motherInformation;
+		this.fatherInformation = fatherInformation;
 	}
 
 	@Data

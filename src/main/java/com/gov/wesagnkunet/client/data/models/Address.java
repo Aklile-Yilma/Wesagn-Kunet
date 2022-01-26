@@ -30,7 +30,6 @@ public class Address {
 	
 	@ManyToOne
 	private Country country;
-	
 	private String city;
 	
 	private String subCity;

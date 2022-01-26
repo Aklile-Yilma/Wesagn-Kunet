@@ -21,9 +21,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import lombok.extern.slf4j.Slf4j;
 
 
 
+@Slf4j
 @Controller
 public class BirthRegistrationController extends ClientController {
 
@@ -43,13 +45,16 @@ public class BirthRegistrationController extends ClientController {
         return "/client/registration/birth-registration";
     }
 
-    @PostMapping("registration/birth")
+    @PostMapping("/registration/birth")
     public String handleBirthRegistrationForm(@Valid BirthRegistrationForm birthRegistrationForm, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "/client/registration/birth-registration";
         }
+
+		log.info("Here");
+
         birthRegistrationForm.createCertificateRequest();
-        return "redirect:/requestSeccessfull";
+        return "redirect:/?requestSeccessfull";
 
     }
 

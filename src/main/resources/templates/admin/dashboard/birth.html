@@ -130,13 +130,13 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-											<form class="" method="post" action="" th:object="${marriageApprovalForm}">
+											<form class="" method="post" action="" th:object="${birthApprovalForm}">
 												<input type="hidden" th:value="${_csrf.token}" name="_csrf">
 												<input type="hidden" value="false" name="approved">
 												<input type="hidden" th:value="${request.id}" name="request">
 												<button type="submit" class="btn btn-danger">Delete</button>
 											</form>
-											<form class="" method="post" action="" th:object="${marriageApprovalForm}">
+											<form class="" method="post" action="" th:object="${birthApprovalForm}">
 												<input type="hidden" th:value="${_csrf.token}" name="_csrf">
 												<input type="hidden" value="true" name="approved">
 												<input type="hidden" th:value="${request.id}" name="request">
