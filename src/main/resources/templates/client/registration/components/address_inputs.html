@@ -1,4 +1,4 @@
-<div class="mt-3 col-4">
+<div class="mt-3  col-12 col-lg-4">
 	<label for="country" class="form-label mb-1">Country</label>
 	<select th:name="${fieldName} + '.country'" id="country" class="form-select form-control bg-transparent" required>
 		<option value="">Select</option>
@@ -7,7 +7,7 @@
 	<div th:if="${#fields.hasErrors(fieldName + '.country')}" class="text-danger" th:errors="*{address.country}"></div>
 </div>
 
-<div class="mt-3 col-4">
+<div class="mt-3  col-12 col-lg-4">
 	<label for="city" class="form-label mb-1">City</label>
 	<div class="input-group">
 		<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -16,7 +16,7 @@
 	<div th:if="${#fields.hasErrors(fieldName + '.city')}" class="text-danger" th:errors="*{address.city}"></div>
 </div>
 
-<div class="mt-3 col-4">
+<div class="mt-3  col-12 col-lg-4">
 	<label for="subCity" class="form-label mb-1">Sub City</label>
 	<div class="input-group">
 		<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -25,7 +25,7 @@
 	<div th:if="${#fields.hasErrors(fieldName + '.subCity')}" class="text-danger" th:errors="*{address.subCity}"></div>
 </div>
 
-<div class="mt-3 col-4">
+<div class="mt-3  col-12 col-lg-4">
 	<label for="wereda" class="form-label mb-1">Wereda</label>
 	<div class="input-group">
 		<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -34,7 +34,7 @@
 	<div th:if="${#fields.hasErrors(fieldName + '.wereda')}" class="text-danger" th:errors="*{address.wereda}"></div>
 </div>
 
-<div th:if="${includeHouseNumber}" class="mt-3 col-4">
+<div th:if="${includeHouseNumber}" class="mt-3  col-12 col-lg-4">
 	<label for="houseNumber" class="form-label mb-1">House Number</label>
 	<div class="input-group">
 		<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
