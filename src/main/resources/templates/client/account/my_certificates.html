@@ -99,6 +99,98 @@
 
 											</div>
 
+											<div class="mt-4" th:if="${details.type.name == 'BIRTH'}">
+												
+
+												<div class="row">
+													<div class="col-2">
+														<img th:src="${media.getUrl(certificate.childInformation.photo)}" class="col-9 p-0 border border-dark" style="border-width: 5px !important;">
+													</div>
+													<div class="col-8">
+														<h4 class="mx-auto col-12 h4 fw-bold text-center mt-2">Birth Certificate</h4>
+														<h4 class="mx-auto col-12 h4 fw-bold text-center">የልደት ምስክር ወረቀት</h4>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-3 my-3">
+														<span class="fw-bold">First Name: </span>[[${certificate.childInformation.fullName.firstName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Middle Name: </span>[[${certificate.childInformation.fullName.middleName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Last Name: </span>[[${certificate.childInformation.fullName.lastName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Sex: </span>[[${certificate.childInformation.sex}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Date of Birth: </span>[[${certificate.childInformation.dateOfBirth}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Nationality: </span>[[${certificate.childInformation.nationality}]]
+													</div>
+
+													<div th:remove="tag" th:with="address=${certificate.childInformation.birthAddress}">
+
+													</div>
+													
+													
+												</div>
+												
+												<div class="row">
+													<div class="col-6" th:with="parentType='Mother'">
+														<div class="row" th:with="parent=${certificate.motherInformation}" th:insert="~{client/account/components/parent_details.html}">
+														</div>
+													</div>
+													<div class="col-6" th:with="parentType='Father'">
+														<div class="row" th:with="parent=${certificate.fatherInformation}" th:insert="~{client/account/components/parent_details.html}">
+														</div>
+													</div>
+												</div>
+
+												
+
+
+											</div>
+
+											<div class="mt-4" th:if="${details.type.name == 'DEATH'}">
+												
+
+												<div class="row">
+													<div class="col-8 mx-auto">
+														<h4 class="mx-auto col-12 h4 fw-bold text-center mt-2">Death Certificate</h4>
+														<h4 class="mx-auto col-12 h4 fw-bold text-center">የሞት የምስክር ወረቀት</h4>
+													</div>
+												</div>
+
+												<div class="row">
+													<div class="col-3 my-3">
+														<span class="fw-bold">First Name: </span>[[${certificate.name.firstName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Middle Name: </span>[[${certificate.name.middleName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Last Name: </span>[[${certificate.name.lastName}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Title: </span>[[${certificate.title}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Date of Birth: </span>[[${certificate.dateOfBirth}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Date of Death: </span>[[${certificate.dateOfDeath}]]
+													</div>
+													<div class="col-3 my-3">
+														<span class="fw-bold">Title: </span>[[${certificate.title}]]
+													</div>
+												</div>
+											</div>
+
+
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

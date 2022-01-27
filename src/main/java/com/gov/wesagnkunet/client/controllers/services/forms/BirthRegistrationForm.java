@@ -4,7 +4,9 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.BirthCertificateRequest;
@@ -79,7 +81,7 @@ public class BirthRegistrationForm {
     @AllArgsConstructor
     public static class ChildForm{
 
-        private NameForm fullName;
+		private NameForm fullName;
 
         @NotBlank(message = "Nationality is required")
         private String nationality;
@@ -88,10 +90,25 @@ public class BirthRegistrationForm {
         @DateTimeFormat
         private Date dateOfBirth;
         
+        @NotNull
         private Client.Sex sex;
         private MultipartFile photo;
         private Address birthAddress;
 
+		
+		
+
+		
+
+		
+
+
+		@AssertTrue(message = "Invalid Date")
+		public boolean isBirthDateValid(){
+			if(dateOfBirth == null)
+				return true;
+			return new Date(System.currentTimeMillis()).after(dateOfBirth);
+		}
 
         public ChildInformation toChild(FileStorageService storageService){
             return new ChildInformation(
@@ -100,10 +117,10 @@ public class BirthRegistrationForm {
                 sex,
                 storageService.store(photo),
                 birthAddress,
-                nationality
+                nationality.toString()
             );
         }
-        }
+    }
 
 
         @AllArgsConstructor
@@ -115,16 +132,16 @@ public class BirthRegistrationForm {
             @NotBlank(message = "Nationality is required")
             private String nationality;
 
-            public ParentInformation toParent(){
-                return new ParentInformation(
-                    fullName.toName(),
-                    nationality
-                );
+		public ParentInformation toParent(){
+			return new ParentInformation(
+				fullName.toName(),
+				nationality.toString()
+			);
 
-            }
+		}
 
-        }
-    }
+	}
+}
 
      
 

@@ -43,7 +43,8 @@ public class DeathCertificate implements Certificate {
 	private Title title;
 
 	private Date dateOfBirth;
-	@Transient
+
+	@ManyToOne
 	private Nationality nationality;
 
 	@Embedded

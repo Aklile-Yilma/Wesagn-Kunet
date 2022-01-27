@@ -76,9 +76,9 @@ public class BirthCertificateRequest {
          ParentInformation fatherInformation
      ){
          this.certificateRequestDetails=certificateRequestDetailsIn;
-         this.child = childIn;
-         this.motherInformation = motherInformation;
-         this.fatherInformation = fatherInformation;
+         this.child=childIn;
+		 this.fatherInformation = fatherInformation;
+		 this.motherInformation = motherInformation;
      }
 
      public BirthCertificate toBirthCertificate(CertificateDetailsRepository certificateDetailsRepositoryIn, BirthCertificateRepository birthCertificateRepositoryIn){

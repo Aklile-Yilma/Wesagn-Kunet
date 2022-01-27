@@ -36,9 +36,8 @@ public class AddressForm {
 				country,
 			city,
 			subCity,
-			houseNumber,
-			wereda
-			
+			wereda,
+			houseNumber
 		);
 	}
 

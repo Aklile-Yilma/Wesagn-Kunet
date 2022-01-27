@@ -7,7 +7,9 @@ import java.sql.Date;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Transient;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.DeathCertificateRequest;
@@ -32,9 +34,9 @@ public class DeathRegistrationForm {
     @Transient
     private Client client;
 
+	@NotNull(message = "Nationality is required")
     private Nationality nationality;
     
-
     @Transient
     private FileStorageService storageService;
 
@@ -53,9 +55,23 @@ public class DeathRegistrationForm {
 
     private Name name;
 
+	@NotNull
 	@Enumerated(EnumType.STRING)
     private Title title;
 
+	@AssertTrue(message = "Invalid Date")
+	public boolean isBirthDateValid(){
+		if(dateOfBirth == null)
+			return true;
+		return new Date(System.currentTimeMillis()).after(dateOfBirth);
+	}
+
+	@AssertTrue(message = "Invalid Date")
+	public boolean isDeathDateValid(){
+		if(dateOfBirth == null)
+			return true;
+		return new Date(System.currentTimeMillis()).after(dateOfBirth);
+	}
 
     public DeathRegistrationForm(Client client, FileStorageService storageService, 
             DeathCertificateRequestRepository deathCertificateRequestRepository) {

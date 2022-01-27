@@ -23,13 +23,14 @@
                     <div class="row">
                         <div class="row" th:remove="tag" th:with="fieldName='marriageAddress'" layout:insert="~{client/registration/components/address_inputs.html}">
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3 col-12 col-lg-4">
                             <label for="dateOfBirth" class="form-label mb-1">Date of Marriage</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
                                 <input type="date" class="form-control border-left-0 bg-light" th:field="*{marriageDate}" placeholder="Date of Marriage" required>
                             </div>
                             <div th:if="${#fields.hasErrors('marriageDate')}" class="text-danger" th:errors="*{marriageDate}"></div>
+                            <div th:if="${#fields.hasErrors('marriageDateValid')}" class="text-danger" th:errors="*{marriageDateValid}"></div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +41,7 @@
                 <div layout:fragment="accordionHeading">Wife's Information</div>
                 <div layout:fragment="accordionBody">
                     <div class="row">
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">First Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -48,7 +49,7 @@
                             </div>
                             <div th:if="${#fields.hasErrors('wife.fullName.firstName')}" class="text-danger" th:errors="*{wife.fullName.firstName}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Father Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -56,7 +57,7 @@
                             </div>
                             <div th:if="${#fields.hasErrors('wife.fullName.middleName')}" class="text-danger" th:errors="*{wife.fullName.middleName}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Grand Father Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -64,7 +65,7 @@
                             </div>
                             <div th:if="${#fields.hasErrors('wife.fullName.lastName')}" class="text-danger" th:errors="*{wife.fullName.lastName}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Nationality</label>
                             <div class="input-group">
 								<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -75,15 +76,16 @@
                             </div>
                             <div th:if="${#fields.hasErrors('wife.nationality')}" class="text-danger" th:errors="*{wife.nationality}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Date of Birth</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
                                 <input type="date" class="form-control border-left-0 bg-light" th:field="*{wife.dateOfBirth}" placeholder="Date of Birth" required>
                             </div>
                             <div th:if="${#fields.hasErrors('wife.dateOfBirth')}" class="text-danger" th:errors="*{wife.dateOfBirth}"></div>
+							<div th:if="${#fields.hasErrors('wifeDateOfBirthValid')}" class="text-danger" th:errors="*{wifeDateOfBirthValid}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Photo</label>
                             <input type="file" class="form-control border-left-0 bg-light" th:field="*{wife.photo}" required>
                             <div th:if="${#fields.hasErrors('wife.photo')}" class="text-danger" th:errors="*{wife.photo}"></div>
@@ -96,7 +98,7 @@
                 <div layout:fragment="accordionHeading">Husband's Information</div>
                 <div layout:fragment="accordionBody">
                     <div class="row">
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">First Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -104,7 +106,7 @@
                             </div>
                             <div th:if="${#fields.hasErrors('husband.fullName.firstName')}" class="text-danger" th:errors="*{husband.fullName.firstName}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Father Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -112,7 +114,7 @@
                             </div>
                             <div th:if="${#fields.hasErrors('husband.fullName.middleName')}" class="text-danger" th:errors="*{husband.fullName.middleName}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Grand Father Name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -120,7 +122,7 @@
                             </div>
                             <div th:if="${#fields.hasErrors('husband.fullName.lastName')}" class="text-danger" th:errors="*{husband.fullName.lastName}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Nationality</label>
 							<div class="input-group">
 								<span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
@@ -131,15 +133,16 @@
                             </div>
                             <div th:if="${#fields.hasErrors('husband.nationality')}" class="text-danger" th:errors="*{husband.nationality}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Date of Birth</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light border-right-0"><i class="fas fa-user-alt text-secondary"></i></span>
                                 <input type="date" class="form-control border-left-0 bg-light" th:field="*{husband.dateOfBirth}" placeholder="Date of Birth" required>
                             </div>
                             <div th:if="${#fields.hasErrors('husband.dateOfBirth')}" class="text-danger" th:errors="*{husband.dateOfBirth}"></div>
+							<div th:if="${#fields.hasErrors('husbandDateOfBirthValid')}" class="text-danger" th:errors="*{husbandDateOfBirthValid}"></div>
                         </div>
-                        <div class="mt-3 col-4">
+                        <div class="mt-3  col-12 col-lg-4">
                             <label class="form-label mb-1">Photo</label>
                             <input type="file" class="form-control border-left-0 bg-light" th:field="*{husband.photo}" required>
                             <div th:if="${#fields.hasErrors('husband.photo')}" class="text-danger" th:errors="*{husband.photo}"></div>

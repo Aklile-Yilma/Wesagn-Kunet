@@ -1,7 +1,9 @@
 package com.gov.wesagnkunet.lib.auth.data.models;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -39,9 +41,20 @@ public class User implements UserDetails {
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(
+		
+		
+		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+		
+		authorities.add(
 			new SimpleGrantedAuthority("ROLE_"+getRole().toString())
 		);
+		if(role == Role.ADMIN){
+			authorities.add(
+				new SimpleGrantedAuthority("ROLE_"+Role.CLIENT.toString())
+			);
+		}
+		
+		return authorities;
 	}
 
 	@Override
