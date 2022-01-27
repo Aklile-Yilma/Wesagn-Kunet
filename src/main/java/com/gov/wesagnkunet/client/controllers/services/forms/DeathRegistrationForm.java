@@ -7,6 +7,7 @@ import java.sql.Date;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.DeathCertificateRequest;
@@ -17,6 +18,8 @@ import com.gov.wesagnkunet.client.data.models.Name;
 import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.data.models.DeathCertificate.Title;
 import com.gov.wesagnkunet.lib.media.services.FileStorageService;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,7 +43,12 @@ public class DeathRegistrationForm {
 
     private AddressForm address;
 
+    @NotBlank(message = "Date of birth is required")
+    @DateTimeFormat
     private Date dateOfBirth;
+
+     @NotBlank(message = "Date of death is required")
+    @DateTimeFormat
     private Date dateOfDeath;
 
     private Name name;

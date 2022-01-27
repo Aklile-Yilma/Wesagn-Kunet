@@ -5,6 +5,7 @@ package com.gov.wesagnkunet.client.controllers.services.forms;
 import java.sql.Date;
 
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
 
 import com.gov.wesagnkunet.admin.data.models.CertificateRequestDetails;
 import com.gov.wesagnkunet.admin.data.models.MarriageCertificateRequest;
@@ -16,6 +17,7 @@ import com.gov.wesagnkunet.client.data.models.Address.Nationality;
 import com.gov.wesagnkunet.client.data.models.MarriageCertificate.Spouse;
 import com.gov.wesagnkunet.lib.media.services.FileStorageService;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
@@ -39,6 +41,8 @@ public class MarriageRegistrationForm {
 
 	private AddressForm marriageAddress;
 
+	@NotBlank(message = "Date of marriage is required")
+	@DateTimeFormat
 	private Date marriageDate;
 
 	private SpouseForm wife;
@@ -74,10 +78,16 @@ public class MarriageRegistrationForm {
 
 		private NameForm fullName;
 
+
+
+		@NotBlank(message = "Nationality is required")
 		private Nationality nationality;
 
-		private Date dateOfBirth;
+			@NotBlank(message = "Date of birth is required")
+	        @DateTimeFormat
+			private Date dateOfBirth;
 
+		@NotBlank(message = "Photo is required")
 		private MultipartFile photo;
 
 		public Spouse toSpouse(FileStorageService storageService){

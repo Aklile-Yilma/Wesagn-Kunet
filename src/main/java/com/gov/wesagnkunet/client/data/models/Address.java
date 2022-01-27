@@ -14,8 +14,11 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CollectionId;
+import org.springframework.format.annotation.NumberFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,15 +30,23 @@ import lombok.NoArgsConstructor;
 @Data
 @Embeddable
 public class Address {
-	
+
+	@NotNull(message = "Please select country")
 	@ManyToOne
 	private Country country;
-	private String city;
+
+		@NotBlank(message = "City is required")
+		private String city;
 	
+	@NotBlank(message = "Subcity is required")
 	private String subCity;
 	
+	@NotBlank(message = "Woreda is required")
+	@NumberFormat
 	private Integer wereda;
 	
+	@NotBlank(message = "House number is required")
+	@NumberFormat
 	private Integer houseNumber;
 
 	// private String nationality;

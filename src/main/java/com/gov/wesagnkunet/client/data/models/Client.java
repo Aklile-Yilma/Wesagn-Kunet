@@ -14,8 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.gov.wesagnkunet.lib.auth.data.models.User;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,8 +43,11 @@ public class Client {
 	@Embedded
 	private Name fullName;
 
+	@NotBlank(message = "Photo is required")
 	private String photo;
 
+	@DateTimeFormat
+	@NotBlank(message = "Date is Required")
 	private Date dateOfBirth;
 
 	@Enumerated(EnumType.STRING)
