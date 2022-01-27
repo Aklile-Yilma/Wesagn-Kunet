@@ -1,6 +1,7 @@
 package com.gov.wesagnkunet.client.controllers.services.forms.components;
 
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import com.gov.wesagnkunet.client.data.models.Address;
@@ -23,10 +24,12 @@ public class AddressForm {
 	@NotBlank(message = "Subcity is required")
 	private String subCity;
 	
-	@NotBlank(message = "Woreda is required")
-	@NumberFormat
+	@NotBlank( message = "Woreda is required")
+	@NumberFormat()
+	@Min(0)
 	private Integer wereda;
 	
+	@Min(0)
 	@NotBlank(message = "House number is required")
 	@NumberFormat
 	private Integer houseNumber;

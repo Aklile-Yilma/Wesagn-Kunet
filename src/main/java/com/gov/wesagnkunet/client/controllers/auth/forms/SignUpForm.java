@@ -25,6 +25,7 @@ import com.gov.wesagnkunet.lib.auth.data.models.User.Role;
 import com.gov.wesagnkunet.lib.auth.exceptions.UserExistsException;
 import com.gov.wesagnkunet.lib.media.services.FileStorageService;
 
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
@@ -51,8 +52,8 @@ public class SignUpForm {
 		this.clientRepository = clientRepository;
 	}
 
-	@NotBlank
-	@Email
+	@NotBlank(message = "Email is required")
+	@Email(message = "Please provide a valid email")
 	private String email;
 
 	@NotBlank
@@ -62,30 +63,31 @@ public class SignUpForm {
 	@NotBlank
 	private String confirmPassword;
 
-	@NotBlank
+	@NotBlank(message = "First name is required")
 	private String firstName;//
 
-	@NotBlank
+	@NotBlank(message = "Middle name is required")
 	private String middleName;//
 
-	@NotBlank
+	@NotBlank(message = "Last name is required")
 	private String lastName;//
 
-	@NotNull
+	@NotNull(message = "Photo is required")
 	private MultipartFile photo;//
 
-	@NotNull
+	@NotNull(message = "Date of birth is required")
 	private Date dateOfBirth;//
 
-	@NotNull
+	@NotNull(message = "Please Select your blood type")
 	private BloodType bloodType;//
 
-	@NotNull
+	@NotNull(message = "Please Select your your type")
 	private Sex sex;//
 
 	private AddressForm address;
 
-	@NotBlank
+	@NotBlank(message = "Phone number is required")
+	@NumberFormat
 	private String phoneNumber;
 
 	@AssertFalse(message = "User with this email already exists")
